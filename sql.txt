@@ -65,3 +65,5 @@ create table apl_tag(
 insert into users(userName, meal, password)
  values('神戸電子', 'kobe@denshi.net', 'kdkd'
  );
+ 
+#gitテスト用変更
