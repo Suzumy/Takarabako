@@ -11,13 +11,18 @@ header{
   padding:20px 0;
 }
 
+
+
+/* 背景色 */
 body{
   background-color:  #FFB899;
 }
 
-.btn{
+
+/* ログイン、新規登録 */
+.btn,.btn2,.btn3{
   border-radius: 5px;
-  background-color: black;
+  background-color: #004766;
   padding: 10px;
   text-decoration: none;
   color: white;
@@ -56,8 +61,11 @@ main{
   padding:50px;
 }
 
-h1{
+
+
+.titlefont{
   color: #ffff;
+  font-size: 45px;
   font-weight: 400;
   text-align: center;
 }
@@ -164,14 +172,73 @@ nav .inner ul li a:hover{
 }
 
 /*mainコンテンツ*/
+/* .title{
+  font-family: "ＭＳＰ明朝", serif;/*フォントの変更*/
+  /*border:1px solid #333;/*枠線(divの範囲がどれくらいかを確認)*/
+}
+
+.contents1{/* twitter */
+  position: absolute;
+  width: 30%;
+  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
+}
+
+.contents2{/* youtube */
+  position: absolute;
+  width: 30%;
+  margin: 0 0 0 30%;/* 上 右 下 左の余白の数値 */
+  /*border:1px solid blue;/*枠線(divの範囲がどれくらいかを確認)*/
+}
+
+.contents3{/* HP */
+  position: absolute;
+  width: 30%;
+  margin: 0 0 0 60%;/* 上 右 下 左の余白の数値 */
+  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/ */
+}
 
 
+.font{
+  color: #ffff;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+}
 
+/* テーブルを常に画面中心に配置 */
+table {
+  margin: 0px auto 20px;
+}
 
+/* テーブルの枠線を灰色の1pxの直線とし、1本にまとめる */
+table, th, td {
+  border: 1px solid #004766;
+  border-collapse: collapse;
+}
 
+/* セル内の上下の余白を3px、左右の余白を10pxに */
+th, td {
+  padding: 3px 10px 3px 10px;
+}
 
+/* セル内のデータを右詰め表示 */
+.td_right {
+  text-align: right;
+}
 
+/* セル内のデータをセンター表示 */
+.td_center {
+  text-align: center;
+}
 
+/* リンクをボタンに見せるやつ */
+.btn3{
+  position: static;
+  float: none;
+}
 
+.parent{
+  text-align:center;
+ }
 
 

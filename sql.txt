@@ -1,67 +1,63 @@
-# データベースtakarabakoの作成
+<?php
+      //DBへのアクセス
+$dsn = 'mysql:host=localhost;dbname=takarabako;charset=utf8';
+$user = 'treasure';
+$password = 'box';
+      $pdo = new PDO($dsn, $user, $password);
+      $sql = "SELECT * FROM hobbys";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $all = $stmt->fetch();
+?>
 
-drop database if exists takarabako;
-create database takarabako character set utf8 collate utf8_general_ci;
-set names utf8;
+<!--http://をhttps://にする-->
+<?php
+    $result = str_replace("http://","https://",$all['URL'],$n);
+?>
+<!--web表示-->
+<!doctype html>
+<html lang="ja">
+  <head>
+  </head>
+    <body>
+<!--webサイトの表示する大きさ-->
+<iframe id="frame"
+        width="400px"
+        height="400px"
+        src="">
+        お使いのブラウザはiframeに対応しておりません
+</iframe>
+<!--webサイトの表示する大きさ-->
+    </body>
+</html>
 
-# ユーザーshoppingに、パスワードsiteを設定し、データベースshopに対するすべての権限を付与
-grant all privileges on takarabako.* to treasure@localhost identified by 'box';
+<!--URL代入-->
+<script>
+  var test,url;
+  url= '<?php echo $result; ?>';
+  frame.setAttribute('src', url);
+  document.write(url);
+</script>
+-----------------------
+<?php
+//DB接続設定
+$dsn = 'mysql:host=localhost;dbname=takarabako;charset=utf8';
+$user = 'treasure';
+$password = 'box';
 
-# データベースtakarabakoを使用する
-use takarabako;
+try {
+    $pdo = new PDO($dsn, $user, $password);
+    $sql = 'select * from hobbys';
+    $stmt = $pdo->query($sql);
+    $results = $stmt->fetchAll( );
+    foreach ($results as $result) {
+      echo $result['URL'];
+    }
+} catch (Exception $e) {
+    echo 'Error' . $e->getMessage();
+    die();
+}
+$pdo = null;
 
-create table users (
-  id	int auto_increment primary key,
-	username		  varchar(20) not null,
-    meal      varchar(30) not null,
-    password    varchar(50) not null
-);
-
-# テーブルhobbysの作成
-create table hobbys(
-	id	int auto_increment primary key,
-    user_id int,
-	URL	varchar(200),
-    memo varchar(200),
-	picture	Blob,
-	day_at	date,
-    disclosure   int, 
-    created_day datetime,
-	update_day	datetime,
-    FOREIGN KEY(user_id) REFERENCES users(id)
-);
-
-# テーブルtagsの作成
-create table tags (
-  id	int auto_increment primary key,
-  user_id int,
-	tag		  varchar(20),
-    FOREIGN KEY(user_id) REFERENCES users(id)
-);
-
-create table hobby_tag(
-    id	int auto_increment primary key,
-    hobby_id int,
-    tag_id int
-);
-
-
-create table application_lists (
-  id	int auto_increment primary key,
-	tag		  varchar(20) not null,
-    title      varchar(20),
-    deadline    datetime not null,
-    detail  varchar(200)
-);
-
-create table apl_tag(
-    id	int auto_increment primary key,
-    hobby_id int,
-    tag_id int
-);
-
-
-# テーブルusersへデータを入力
-insert into users(userName, meal, password)
- values('神戸電子', 'kobe@denshi.net', 'kdkd'
- );
+?>
+-----------------------

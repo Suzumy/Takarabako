@@ -1,6 +1,6 @@
 <?php
 //DB接続設定
-require_once 'DB.php';
+require_once '../DB.php';
 //tagがまず送られている？
 if (isset($_POST['tag'])) {
     $tag = $_POST['tag'];
