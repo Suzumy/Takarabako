@@ -2,33 +2,25 @@
 //DB接続設定
 require_once '../DB.php';
 //tagがまず送られている？
-if (isset($_POST['tag'])) {
-    $tag = $_POST['tag'];
-    //tagsテーブルのidを取得
-    $sql = 'SELECT * FROM tags WHERE tag=:tag';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':tag', $tag);
-    $stmt->execute();
-    $tags_id = $stmt->fetch();
-    $tags_id = $tags_id['id'];
+if (isset($_POST['hobby_tag'])) {
+    $hobby_tag = $_POST['hobby_tag'];
     //プルダウンの選択が全てなら全部表示
-    if ($tag == '全て') {
-        $sql = "SELECT  * FROM application_lists";
+    if ($hobby_tag == '全て') {
+        $sql = "SELECT  * FROM hobbys";
         $stmt =  $pdo->query($sql);
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
     } else {
         //プレースホルダにするべきかも
-        $sql = 'SELECT * FROM  application_lists JOIN apl_tag ON application_lists.id=apl_tag.apl_id WHERE apl_tag.tag_id=:tags_id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':tags_id', $tags_id);
+        $sql = "SELECT  * FROM hobbys WHERE tag ='" . $tag . "'";
+        $stmt = $pdo->query($sql);
         $stmt->execute();
         $tasks = $stmt->fetchall();
     }
     //$tagに変数がない場合
 } else {
-    $sql = "SELECT  * FROM application_lists";
+    $sql = "SELECT  * FROM hobbys";
     $stmt =  $pdo->query($sql);
     $stmt->execute();
     $tasks = $stmt->fetchall();
