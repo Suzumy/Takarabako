@@ -42,6 +42,9 @@ require_once 'listDB.php';
             ?>
         </select>
         <input type='submit' value='送信' />
+
+
+
     </form>
     <!-- ここから締め切りリスト-->
     <table border="1">

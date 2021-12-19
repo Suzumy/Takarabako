@@ -12,9 +12,18 @@ if (isset($_POST['tag'])) {
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
     } else {
-        //プレースホルダにするべきかも
-        $sql = "SELECT  * FROM application_lists WHERE tag ='" . $tag . "'";
-        $stmt = $pdo->query($sql);
+
+        //tagsテーブルのidを取得
+        $sql = 'SELECT * FROM tags WHERE tag=:tag';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':tag', $tag);
+        $stmt->execute();
+        $tags_id = $stmt->fetch();
+        $tags_id = $tags_id['id'];
+        $sql = 'SELECT * FROM  application_lists JOIN apl_tag ON application_lists.id=apl_tag.apl_id WHERE apl_tag.tag_id=:tags_id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':tags_id', $tags_id);
+
         $stmt->execute();
         $tasks = $stmt->fetchall();
     }

@@ -3,7 +3,7 @@
 require_once '../DB.php';
 require_once '../util.php';
 
-$id = $_POST['id'];
+$apl_id = $_POST['id'];
 $title = $_POST['title'];
 $deadline = $_POST['deadline'];
 $detail = $_POST['detail'];
@@ -11,8 +11,16 @@ if (isset($_POST['back'])) {
     header('Location: list.php');
 }
 
-$sql = "DELETE  FROM application_lists WHERE id ='" . $id . "'";
-$stmt = $pdo->query($sql);
+
+$sql = "DELETE  FROM apl_tag WHERE apl_id =:apl_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':apl_id', $apl_id);
+$stmt->execute();
+
+$sql = "DELETE  FROM application_lists WHERE id =:id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $apl_id);
+
 $result = $stmt->execute();
 ?>
 
