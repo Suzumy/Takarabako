@@ -20,10 +20,9 @@ require_once 'hopup.php';
 
 //締め切り要素をlistDB.phpから取得
 require_once 'listDB.php';
+
 ?>
 <!-- ここからサイトの表示-->
-
-
 
 <main>
 
@@ -43,6 +42,7 @@ require_once 'listDB.php';
             ?>
         </select>
         <input type='submit' value='送信' />
+
 
 
     </form>
