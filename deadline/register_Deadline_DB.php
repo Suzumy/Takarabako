@@ -6,25 +6,34 @@ $time = $_POST['time'];
 $detail = $_POST['memo'];
 $data = $days . ' ' . $time;
 
-$sql = "INSERT INTO `application_lists` (`id`, `tag`,`title`, `deadline`, `detail`) VALUES (NULL, '#',:title, :data, :detail )";
+$sql = "INSERT INTO `application_lists` (`id`,`title`, `deadline`, `detail`) VALUES (NULL,:title, :data, :detail )";
 #apllistsにtitle, deadline, detailを格納
-#格納したidを取得lasrinsertid()
 #tagsにtagを格納
 #格納したidを取得lasrinsertid()
 #apl_tagに格納した2つのidを挿入//sqlインクジェクション対策
 $sth = $pdo->prepare($sql);
-
 $sth->bindValue(':title', $title);
 $sth->bindValue(':data', $data);
 $sth->bindValue(':detail', $detail);
+$result1 = $sth->execute();
+#格納したidを取得lasrinsertid()
+$apl_id = $pdo -> lastInsertId();
 
-$result = $sth->execute();
+$sql = "INSERT INTO `apl_tag` (`id`,`apl_id`, `tag_id`) VALUES (NULL, :apl_id,'1')";
+$sth = $pdo->prepare($sql);
+$sth->bindValue(':apl_id', $apl_id);
+$result2 = $sth->execute();
 
 
 
 //チェック用
-if ($result) {
-    echo '登録成功！';
+if ($result1) {
+    echo '1登録成功！';
 } else {
-    echo '失敗';
+    echo '1失敗';
+}
+if ($result2) {
+    echo '2登録成功！';
+} else {
+    echo '2失敗';
 }
