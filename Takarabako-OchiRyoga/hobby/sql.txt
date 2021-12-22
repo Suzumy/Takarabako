@@ -1,0 +1,67 @@
+# データベースtakarabakoの作成
+
+drop database if exists takarabako;
+create database takarabako character set utf8 collate utf8_general_ci;
+set names utf8;
+
+# ユーザーshoppingに、パスワードsiteを設定し、データベースshopに対するすべての権限を付与
+grant all privileges on takarabako.* to treasure@localhost identified by 'box';
+
+# データベースtakarabakoを使用する
+use takarabako;
+
+create table users (
+  id	int auto_increment primary key,
+	username		  varchar(20) not null,
+    meal      varchar(30) not null,
+    password    varchar(50) not null
+);
+
+# テーブルhobbysの作成
+create table hobbys(
+	id	int auto_increment primary key,
+    user_id int,
+	URL	varchar(200),
+    memo varchar(200),
+	picture	Blob,
+	day_at	date,
+    disclosure   int, 
+    created_day datetime,
+	update_day	datetime,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+# テーブルtagsの作成
+create table tags (
+  id	int auto_increment primary key,
+  user_id int,
+	tag		  varchar(20),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+create table hobby_tag(
+    id	int auto_increment primary key,
+    hobby_id int,
+    tag_id int
+);
+
+
+create table application_lists (
+  id	int auto_increment primary key,
+	tag		  varchar(20) not null,
+    title      varchar(20),
+    deadline    datetime not null,
+    detail  varchar(200)
+);
+
+create table apl_tag(
+    id	int auto_increment primary key,
+    hobby_id int,
+    tag_id int
+);
+
+
+# テーブルusersへデータを入力
+insert into users(userName, meal, password)
+ values('神戸電子', 'kobe@denshi.net', 'kdkd'
+ );
