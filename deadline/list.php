@@ -91,3 +91,5 @@ require_once 'listDB.php';
         <a class="btn3" href="register_Deadline.php">新規登録</a>
     </div>
 </main>
+
+<script src="../script.js"></script>

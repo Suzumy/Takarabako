@@ -18,7 +18,7 @@ require_once 'hobbylistDB.php';
 <main>
 
     <form method='POST'>
-        <select name='hobby_tag'>
+        <select name='tag'>
             <option value='全て'>全て</option>
             <?php
             //絞り込みができていない
@@ -46,7 +46,7 @@ require_once 'hobbylistDB.php';
             <tr>
                 <td><?php echo h($task['memo']); ?></td>
                 <td><?php echo h($task['day_at']); ?></td>
-                <td><?php echo h($task['hobby_tag']); ?></td>
+                <td><?php echo h($task['tag']); ?></td>
                 <td>
                     <!-- 編集画面edit.phpにデータを送信-->
                     <!-- edit.phpをregister_Deadlineと共有にしたい -->
@@ -54,14 +54,15 @@ require_once 'hobbylistDB.php';
                         <input type="hidden" name="id" value="<?= $task['id']; ?>">
                         <input type="hidden" name="memo" value="<?= $task['memo']; ?>">
                         <input type="hidden" name="day_at" value="<?= $task['day_at']; ?>">
-                        <input type="hidden" name="hobby_tag" value="<?= $task['hobby_tag']; ?>">
+                        <input type="hidden" name="tag" value="<?= $task['tag']; ?>">
+                        <input type="hidden" name="URL" value="<?= $task['URL']; ?>">
                         <input type="submit" name="btn" value="編集">
                     </form>
                     <!-- 削除画面delete.phpにデータを送信-->
                     <form action="hobby_delete.php" method="POST">
                         <input type="hidden" name="title" value="<?= $task['memo']; ?>">
                         <input type="hidden" name="day_at" value="<?= $task['day_at']; ?>">
-                        <input type="hidden" name="hobby_tag" value="<?= $task['hobby_tag']; ?>">
+                        <input type="hidden" name="tag" value="<?= $task['tag']; ?>">
                         <input type="hidden" name="id" value="<?= $task['id']; ?>">
                         <input type="submit" name="btn" value="削除">
                     </form>
