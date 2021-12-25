@@ -22,6 +22,7 @@ if ($_POST['address'] != '' && $_POST['password'] != '') {
     if ($user) {
         //情報があればlogin成功としてHP.phpに飛ばす
         $_SESSION['id'] = $user['id'];
+        $_SESSION['error'] = '';
         header('Location: ../HP.php');
     } else {
         //ログイン失敗
