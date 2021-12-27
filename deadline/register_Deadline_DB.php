@@ -19,13 +19,26 @@ $sth->bindValue(':detail', $detail);
 $result1 = $sth->execute();
 #格納したidを取得lasrinsertid()
 $apl_id = $pdo->lastInsertId();
+
+
 //tag_idの取得
 $sql = 'SELECT * FROM tags WHERE tag=:tag';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':tag', $tag);
 $stmt->execute();
 $tags_id = $stmt->fetch();
-$tags_id = $tags_id['id'];
+
+//もしtagがDBになかったら登録する、あればスルー
+if (empty($tags_id)) {
+    $sql = "INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL, '1', :tag ) ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':tag', $tag);
+    $stmt->execute();
+    $tags_id = $pdo->lastInsertId();
+} else {
+    $tags_id = $tags_id['id'];
+}
+
 
 $sql = "INSERT INTO `apl_tag` (`id`,`apl_id`, `tag_id`) VALUES (NULL, :apl_id,:apl_tag)";
 $sth = $pdo->prepare($sql);
