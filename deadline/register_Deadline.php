@@ -26,6 +26,10 @@ require_once __DIR__ . '/../header.php';
                 <td><input type="date" name="day"></td>
             </tr>
             <tr>
+                <td>タグ</td>
+                <td><input type="text" name="tag"></td>
+            </tr>
+            <tr>
                 <td>時間</td>
                 <td><input type="time" name="time"></td>
 
