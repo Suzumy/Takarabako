@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../header.php';
+require_once __DIR__ . '/../util.php';
+//DB接続設定
+require_once '../DB.php';
+
+$sql = "SELECT DISTINCT * FROM tags";
+$stmt = $pdo->query($sql);
+$stmt->execute();
+$tags = $stmt->fetchall();
+
 ?>
 //このファイルにphpの処理を足して登録・編集を兼用できるようにしたい
 <html>
@@ -17,6 +26,17 @@ require_once __DIR__ . '/../header.php';
     <p class="font1">締め切り登録</p>
     <form action="register_Deadline_DB.php" method="POST">
         <table>
+            <!--tagの表示-->
+            <select name='tag'>
+                <?php
+                //tagを取得 
+                foreach ($tags as $tags) {
+                    $tags_list = "<option value='" . h($tags['tag']);
+                    $tags_list .= "'>" . h($tags['tag']) . "</option>";
+                    echo $tags_list;
+                }
+                ?>
+            </select>
             <tr>
                 <td>題名</td>
                 <td><input type="text" name="title"></td>
@@ -32,8 +52,6 @@ require_once __DIR__ . '/../header.php';
             <tr>
                 <td>時間</td>
                 <td><input type="time" name="time"></td>
-
-
             </tr>
             <tr>
                 <td>メモ</td>

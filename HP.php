@@ -1,54 +1,45 @@
 <?php
 require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/HP_DB.php';
 ?>
 
-  <main>
-      <div class="title">
-      <h1>My Favorite Contents</h1>
-      </div>
+<main>
+  <div class="title">
+    <h1>My Favorite Contents</h1>
+  </div>
+  <?php
+  foreach ($tags as $value) {
+  ?>
+    <input type="submit" value="<?php echo $value['tag']; ?>">
 
-      <div class="contents0">
-      <div class="contents1">
-        <!--twitterの表示する大きさ-->
-        <div style="
-          width: 100%;
-          max-width: 300px;
-          max-height: 300px;
-          overflow-y: scroll;">
+  <?php
+  }
+  //iframeの表示
+  foreach ($all as $value) {
 
-        <!-- ここから生成した埋め込みコード -->
-          <a class="twitter-timeline" href="https://twitter.com/kobedenshi?ref_src=twsrc%5Etfw">
-          Tweets by kobedenshi</a>
+    $result = str_replace("http://", "https://", $value['URL'], $n);
+    $iframe_num = 'frame' . $num;
 
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <!-- ここまで生成した埋め込みコード -->
-        </div>
-
-        <div style="
-              width: 100%;
-              top: 50px;
-              max-width: 300px;
-              max-height: 300px;
-              overflow-y: scroll;">
-
-            <!-- ここから生成した埋め込みコード -->
-            <a class="twitter-timeline" href="https://twitter.com/KDesports2022?ref_src=twsrc%5Etfw">
-            Tweets by KDesports2022</a>
-
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <!-- ここまで生成した埋め込みコード -->
-        </div>
-      </div>
+  ?>
+    <div class="contents">
+      <iframe id="frame" width="400px" height="400px" src="">
+        お使いのブラウザはiframeに対応しておりません
+      </iframe>
     </div>
-
-      <div class="contents2">
-        <iframe width="100%" height="250" src="https://www.youtube.com/embed/JDtclAbTbcM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <div class="contents3">
-      <iframe src="https://www.kobedenshi.ac.jp/" width="100%" height="500"></iframe>
-      </div>
-  </main>
+    <!-- frameにidを割り当て    -->
+    <script>
+      var iframe_id = document.getElementById('frame')
+      iframe_id.setAttribute('id', '<?php echo $iframe_num; ?>');
+      /*iframeにURL代入   */
+      var url;
+      url = '<?php echo $result; ?>';
+      iframe_id.setAttribute('src', url);
+    </script>
+  <?php
+    $num += 1;
+  }
+  ?>
+</main>
 
 <?php
 require_once __DIR__ . '/footer.php';
