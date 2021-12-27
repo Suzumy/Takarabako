@@ -8,6 +8,12 @@ require_once __DIR__ . '/HP_DB.php';
     <h1>My Favorite Contents</h1>
   </div>
   <?php
+  foreach ($tags as $value) {
+  ?>
+    <input type="submit" value="<?php echo $value['tag']; ?>">
+
+  <?php
+  }
   //iframeの表示
   foreach ($all as $value) {
 
