@@ -1,26 +1,32 @@
 <?php
 //DB接続設定
-require_once '../DB.php';
+require_once 'DB.php';
 //tagがまず送られている？
-if (isset($_POST['hobby_tag'])) {
-    $hobby_tag = $_POST['hobby_tag'];
+if (isset($_POST['tag'])) {
+    $hobby_tag = $_POST['tag'];
     //プルダウンの選択が全てなら全部表示
     if ($hobby_tag == '全て') {
-        $sql = "SELECT  * FROM hobbys";
+        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL FROM hobbys 
+        LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
+        LEFT JOIN tags ON hobby_tag.id = tags.id";
         $stmt =  $pdo->query($sql);
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
     } else {
         //プレースホルダにするべきかも
-        $sql = "SELECT  * FROM hobbys WHERE tag ='" . $tag . "'";
+        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL FROM hobbys 
+        LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
+        LEFT JOIN tags ON hobby_tag.id = tags.id";
         $stmt = $pdo->query($sql);
         $stmt->execute();
         $tasks = $stmt->fetchall();
     }
     //$tagに変数がない場合
 } else {
-    $sql = "SELECT  * FROM hobbys";
+    $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL FROM hobbys 
+    LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
+    LEFT JOIN tags ON hobby_tag.id = tags.id";
     $stmt =  $pdo->query($sql);
     $stmt->execute();
     $tasks = $stmt->fetchall();
