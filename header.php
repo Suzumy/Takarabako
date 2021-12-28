@@ -30,8 +30,10 @@
             <p><a href="#"><img src="box.jpg" alt="宝箱" class="image1"></a></p>
 
             <h1 class="titlefont">たからばこ</h1>
-            <a href="new.html" class="btn">ログイン</a>
-            <a href="rogin.html" class="btn2">新規登録</a>
+            <!-- ログイン後の画面にログイン画面と新規登録画面は不要 -->
+            <!-- <a href="new.html" class="btn">ログイン</a>
+            <a href="rogin.html" class="btn2">新規登録</a> -->
+            <a href="./user/logout.php" class="btn2">ログアウト</a>
         </header>
 
         <div class="toggle-btn">

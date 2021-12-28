@@ -1,6 +1,14 @@
 <?php
 require_once __DIR__ . '/header.php';
 require_once __DIR__ . '/HP_DB.php';
+
+session_start();
+
+if (empty($_SESSION['id'])) {
+  //ログイン画面へ遷移
+  header('Location: ./user/login.php');
+}
+
 ?>
 
 <main>
