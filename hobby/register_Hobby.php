@@ -14,7 +14,7 @@ require_once __DIR__ . '/../header.php';
 
 <body>
     <p class="font1">登録</p>
-    <form action="">
+    <form action="register_Hobby_DB.php" method="POST">
         <table>
             <tr>
                 <td>URL</td>
