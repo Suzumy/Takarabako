@@ -4,6 +4,12 @@ require_once __DIR__ . '/HP_DB.php';
 ?>
 
 <main>
+  <!-- 後でフロントの人に見た目を整えてもらう 1 -->
+  <p>もうすぐ締め切りのもの</p>
+  <?php
+  echo $near_deadline['title'];
+  ?>
+  <!-- 1 ここまで -->
   <div class="title">
     <h1>My Favorite Contents</h1>
   </div>
@@ -39,6 +45,8 @@ require_once __DIR__ . '/HP_DB.php';
     $num += 1;
   }
   ?>
+
+  <a href="./hobby/register_Hobby.php">新規登録</a>
 </main>
 
 <?php
