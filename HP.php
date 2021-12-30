@@ -15,7 +15,12 @@ if (empty($_SESSION['id'])) {
   <!-- 後でフロントの人に見た目を整えてもらう 1 -->
   <p>もうすぐ締め切りのもの</p>
   <?php
-  echo $near_deadline['title'];
+  if (!$near_deadline == 'false') {
+    echo $near_deadline['title'];
+  } else {
+    echo '現在締め切りの近いものはありません';
+  }
+
   ?>
   <!-- 1 ここまで -->
   <div class="title">

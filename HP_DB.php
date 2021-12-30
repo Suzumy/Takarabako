@@ -3,7 +3,7 @@
 require_once __DIR__ . '/DB.php';
 
 $userId = 2; //本来はセッションに入っているユーザーIDを参照する
-$sql = "SELECT  * FROM tags where user_id = :user_id";
+$sql = "SELECT DISTINCT tag FROM tags where user_id = :user_id and tag != ' '";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $userId);
 $stmt->execute();
@@ -21,3 +21,6 @@ $sql = "SELECT * FROM `application_lists` WHERE deadline > now() ORDER BY deadli
 $stmt = $pdo->query($sql);
 $stmt->execute();
 $near_deadline = $stmt->fetch();
+if (empty($near_deadline[0])) {
+    $near_deadline = 'false';
+}
