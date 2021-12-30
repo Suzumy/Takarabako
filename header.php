@@ -33,7 +33,7 @@
             <!-- ログイン後の画面にログイン画面と新規登録画面は不要 -->
             <!-- <a href="new.html" class="btn">ログイン</a>
             <a href="rogin.html" class="btn2">新規登録</a> -->
-            <a href="./user/logout.php" class="btn2">ログアウト</a>
+            <a href="http://localhost/Takarabako/user/logout.php" class="btn2">ログアウト</a>
         </header>
 
         <div class="toggle-btn">

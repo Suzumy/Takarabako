@@ -1,6 +1,8 @@
 <?php
 //エスケープ処理
 require_once '../util.php';
+require_once '../DB.php';
+
 //編集ボタンを押した要素の取得
 $id = $_POST['id'];
 $title = $_POST['title'];
@@ -11,6 +13,19 @@ $detail = $_POST['detail'];
 if (isset($_POST['back'])) {
     header('Location: list.php');
 }
+
+//タグを取得する
+$sql = "SELECT tag FROM application_lists LEFT JOIN apl_tag ON application_lists.id = apl_tag.apl_id LEFT JOIN tags ON apl_tag.tag_id = tags.id WHERE application_lists.id = :id;";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $id);
+$stmt->execute();
+$tags = $stmt->fetchAll();
+$tag = "";
+foreach ($tags as $t) {
+    $tag = $tag . $t['tag'] . ' ';
+}
+//最後に余分な空白ができるためこれを削除する
+$tag = trim($tag);
 
 ?>
 <!--ここから表示-->
@@ -26,20 +41,25 @@ if (isset($_POST['back'])) {
     <form method="POST" action="editcheck.php">
         <table>
             <tr>
-                <td>タイトル <input type="text" name="title" value=<?= h($title) ?> required></td>
+                <td>題名</td>
+                <td><input type="text" name="title" value=<?= h($title) ?> required></td>
             </tr>
             <tr>
-                <td>締切日<input type="text" name="deadline" value=<?= h($deadline) ?>required></td>
+                <td>締め切り日</td>
+                <td><input type="date" name="deadline" value=<?= h($deadline) ?>required></td>
             </tr>
             <tr>
-                <td>詳細<input type="text" name="detail" value=<?= h($detail) ?> required></td>
+                <td>タグ</td>
+                <td><input type="text" name="tag" value="<?= h($tag) ?>"></td>
+            </tr>
+            <tr>
+                <td>メモ</td>
+                <td><textarea type="text" name="detail" cols="50" rows="5"><?= h($detail) ?></textarea></td>
             </tr>
             <input type="hidden" name="id" value=<?= h($id) ?>>
         </table>
-        <!--送信ボタン-->
         <input type='submit' value='送信' />
     </form>
-    <!--締め切り一覧に戻るボタン-->
     <form method="POST">
         <input type='submit' name='back' value='締め切り一覧に戻る'>
     </form>
