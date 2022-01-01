@@ -53,7 +53,7 @@ foreach ($tag_array as $t) {
 
 //チェック用
 if ($result1) {
-    echo '1,登録成功！';
+    header('Location: ./hobbylist.php');
 } else {
     echo '1,失敗';
 }
