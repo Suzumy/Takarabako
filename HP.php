@@ -2,7 +2,6 @@
 require_once __DIR__ . '/header.php';
 require_once __DIR__ . '/HP_DB.php';
 
-session_start();
 
 if (empty($_SESSION['id'])) {
   //ログイン画面へ遷移
@@ -29,7 +28,9 @@ if (empty($_SESSION['id'])) {
   <?php
   foreach ($tags as $value) {
   ?>
-    <input type="submit" value="<?php echo $value['tag']; ?>">
+    <form method="POST" style="display: inline;">
+      <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
+    </form>
 
   <?php
   }
