@@ -77,7 +77,7 @@ require_once 'hobbylistDB.php';
 
     </table>
     <!-- //登録画面に遷移 -->
-    <a href=".php">登録</a>
+    <a href="./register_Hobby.php">登録</a>
     <script src="../script.js"></script>
 
 </main>
