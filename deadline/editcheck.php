@@ -6,6 +6,9 @@ require_once '../util.php';
 //DBに接続
 require_once '../DB.php';
 
+require_once __DIR__ . '/../header.php';
+
+
 //締め切り一覧に戻るボタンの処理
 if (isset($_POST['back'])) {
     header('Location: list.php');

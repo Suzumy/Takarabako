@@ -3,6 +3,9 @@
 require_once '../util.php';
 require_once '../DB.php';
 
+require_once __DIR__ . '/../header.php';
+
+
 //編集ボタンを押した要素の取得
 $id = $_POST['id'];
 $title = $_POST['title'];
