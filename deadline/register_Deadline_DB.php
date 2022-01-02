@@ -62,7 +62,7 @@ if (!empty($string_tag)) {
 
 //チェック用
 if ($result1) {
-    echo '1登録成功！';
+    header('Location: ./list.php');
 } else {
     echo '1失敗';
 }
