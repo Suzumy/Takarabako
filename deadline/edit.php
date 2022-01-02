@@ -64,3 +64,5 @@ $tag = trim($tag);
         <input type='submit' name='back' value='締め切り一覧に戻る'>
     </form>
 </main>
+
+<script src="../script.js"></script>

@@ -35,4 +35,6 @@ require_once __DIR__ . '/../header.php';
     </form>
 </body>
 
+<script src="../script.js"></script>
+
 </html>

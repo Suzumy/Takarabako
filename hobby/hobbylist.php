@@ -6,6 +6,9 @@
     <title>趣味一覧画面</title>
 </head>
 <?php
+//ヘッダー読み込み
+require_once __DIR__ . '/../header.php';
+
 //htmlspecialcharsの処理
 require_once '../util.php';
 
@@ -73,6 +76,8 @@ require_once 'hobbylistDB.php';
         ?>
 
     </table>
-    //登録画面に遷移
+    <!-- //登録画面に遷移 -->
     <a href=".php">登録</a>
+    <script src="../script.js"></script>
+
 </main>

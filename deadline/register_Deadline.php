@@ -64,4 +64,6 @@ $tags = $stmt->fetchall();
     </form>
 </body>
 
+<script src="../script.js"></script>
+
 </html>
