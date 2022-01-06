@@ -1,0 +1,64 @@
+body{
+    background-color: gray;
+}
+
+ul{
+    list-style-type: none;
+    border: 3px black;
+}
+
+.drag-and-drop {
+    cursor: move;
+    position: absolute;
+    z-index: 1000;
+}
+
+.drag {
+    z-index: 1001;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+div {
+    display: block;
+}
+
+.drag-and-drop {
+    cursor: move;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1000;
+    color: #fff;
+    font-size: 20px;
+    line-height : 0px;
+    text-align: center;
+}
+
+#title{
+    color:black;
+    font-size: large;
+}
+
+#dragImage{
+    width: 30px;
+    height: 30px;
+}
+
+#red-box {
+    top: 0;
+    left: 0;
+}
+#blue-box {
+    top: 0;
+    left: 110px;
+     border: 3px black ;
+}
+#yellow-box {
+    top: 0;
+    left: 220px;
+    border: 2px black;
+}
+
