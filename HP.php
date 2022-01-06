@@ -15,9 +15,9 @@ if (empty($_SESSION['id'])) {
   <p>もうすぐ締め切りのもの</p>
   <?php
   if (!$near_deadline == 'false') {
-    echo $near_deadline['title'];
-  } else {
     echo '現在締め切りの近いものはありません';
+  } else {
+    echo $near_deadline['title'];
   }
 
   ?>
