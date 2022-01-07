@@ -15,8 +15,12 @@
             <div class="inner">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Detail</a></li>
-                    <li><a href="#">Contact</a></li>
+
+                    <li><a href="./hobby/register_Hobby.php">趣味・画像登録画面</a></li>
+                    <li><a href="./hobby/hobbylist.php">趣味・画像一覧</a></li>
+                    <li><a href="./deadline/register_Deadline.php">締め切り登録画面</a></li>
+                    <li><a href="./deadline/list.php">締め切り一覧画面</a></li>
+
                 </ul>
             </div>
         </nav>
