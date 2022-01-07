@@ -2,6 +2,8 @@
 
 require_once '../DB.php';
 require_once '../util.php';
+require_once __DIR__ . '/../header.php';
+
 
 $apl_id = $_POST['id'];
 $title = $_POST['title'];

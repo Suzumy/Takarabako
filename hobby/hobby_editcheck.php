@@ -8,28 +8,22 @@ require_once '../DB.php';
 
 require_once __DIR__ . '/../header.php';
 
-
-//締め切り一覧に戻るボタンの処理
 if (isset($_POST['back'])) {
-    header('Location: list.php');
+    header('Location: hobbylist.php');
 }
 
-//edit.phpからの変数
+
 $id = $_POST['id'];
-$title = $_POST['title'];
-$deadline = $_POST['deadline'];
-$tag = $_POST['tag'];
-$old_tag = $tag; //削除するタグを格納している
-$detail = $_POST['detail'];
-$userId = $_SESSION['id']; //本来はセッション変数を使う
+$URL = $_POST['URL'];
+$hobby_tag = $_POST['hobby_tag'];
+$memo = $_POST['memo'];
+$userId = $_SESSION['id'];
 //update文
 //$sql = "UPDATE application_lists SET  title ='" . $title . "', deadline ='" . $deadline . "', detail ='" . $detail . "' WHERE id ='" . $id . "'";
-$sql = "UPDATE application_lists SET user_id = :user_id, title = :title, deadline = :deadline, detail = :detail WHERE id = :id";
+$sql = "UPDATE hobbys SET URL = :URL, memo = :memo WHERE id = :id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':user_id', $userId);
-$stmt->bindValue(':title', $title);
-$stmt->bindValue(':deadline', $deadline);
-$stmt->bindValue(':detail', $detail);
+$stmt->bindValue(':URL', $URL);
+$stmt->bindValue(':memo', $memo);
 $stmt->bindValue(':id', $id);
 $stmt->execute();
 $stmt->fetch();
@@ -86,21 +80,26 @@ if (!empty($tag)) {
 <head>
     <meta charset="UTF-8">
 </head>
-<h1>締め切り編集確認画面</h1>
-<p>この内容で更新しました</p>
-<p></p>
-<table>
-    <tr>
-        <td>タイトル:<?= h($title) ?></td>
-    </tr>
-    <tr>
-        <td>締切日:<?= h($deadline) ?></td>
-    </tr>
-    <tr>
-        <td>詳細:<?= h($detail) ?></td>
-    </tr>
-</table>
-<!--締め切り一覧に戻るボタン-->
-<form method="POST">
-    <input type='submit' name='back' value='締め切り一覧に戻る'>
-</form>
+
+<body>
+    <h1>締め切り編集確認画面</h1>
+    <p>この内容で更新しました</p>
+    <p></p>
+    <table>
+        <tr>
+            <td>タイトル:<?= h($title) ?></td>
+        </tr>
+        <tr>
+            <td>締切日:<?= h($deadline) ?></td>
+        </tr>
+        <tr>
+            <td>詳細:<?= h($detail) ?></td>
+        </tr>
+    </table>
+    <!--締め切り一覧に戻るボタン-->
+    <form method="POST">
+        <input type='submit' name='back' value='締め切り一覧に戻る'>
+    </form>
+
+    <script src="../script.js"></script>
+</body>
