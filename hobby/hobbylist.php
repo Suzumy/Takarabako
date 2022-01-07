@@ -6,6 +6,9 @@
     <title>趣味一覧画面</title>
 </head>
 <?php
+//ヘッダー読み込み
+require_once __DIR__ . '/../header.php';
+
 //htmlspecialcharsの処理
 require_once '../util.php';
 
@@ -24,7 +27,7 @@ require_once 'hobbylistDB.php';
             //絞り込みができていない
             //tagを取得 
             foreach ($tags as $tag) {
-                $tags_list = "<option value='" . h($tags['tag']);
+                $tags_list = "<option value='" . h($tag['tag']);
                 $tags_list .= "'>" . h($tag['tag']) . "</option>";
                 echo $tags_list;
             }
@@ -73,6 +76,8 @@ require_once 'hobbylistDB.php';
         ?>
 
     </table>
-    //登録画面に遷移
-    <a href=".php">登録</a>
+    <!-- //登録画面に遷移 -->
+    <a href="./register_Hobby.php">登録</a>
+    <script src="../script.js"></script>
+
 </main>
