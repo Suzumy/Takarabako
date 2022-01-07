@@ -11,6 +11,8 @@ header{
   padding:20px 0;
 }
 
+
+
 /* 背景色 */
 body{
   background-color:  #FFB899;
@@ -148,6 +150,10 @@ nav .inner ul li a:hover{
   bottom: 1px;
 }
 
+.open .toggle-btn span{
+  /*background-color: #fff;/*後で消す*/
+}
+
 #mask{
   display: none;
   transition:all 0.5s;
@@ -168,8 +174,8 @@ nav .inner ul li a:hover{
 /*mainコンテンツ*/
 /* .title{
   font-family: "ＭＳＰ明朝", serif;/*フォントの変更*/
-  /*border:1px solid #333;/*枠線(divの範囲がどれくらいかを確認)
-}*/
+  /*border:1px solid #333;/*枠線(divの範囲がどれくらいかを確認)*/
+/*}*/
 
 .contents1{/* twitter */
   position: absolute;
@@ -190,7 +196,6 @@ nav .inner ul li a:hover{
   margin: 0 0 0 60%;/* 上 右 下 左の余白の数値 */
   /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/ 
 }
-
 
 .font{
   color: #ffff;
