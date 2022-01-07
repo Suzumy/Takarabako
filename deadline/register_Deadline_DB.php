@@ -27,6 +27,30 @@ $result1 = $sth->execute();
 #格納したidを取得lasrinsertid()
 $apl_id = $pdo->lastInsertId();
 
+$tag = preg_replace('/　/', ' ', $tag); //全角スペースを半角スペースへ
+$tag = preg_replace('/\s+/', ' ', $tag); //連続する半角スペースを1つの半角スペースへ
+//" "で区切る
+$tags = explode(" ", $tag);
+//tagの個数分登録を繰り返す
+foreach ($tags as $tag) {
+  //tag_idの取得
+  $sql = 'SELECT * FROM tags WHERE tag=:tag';
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':tag', $tag);
+  $stmt->execute();
+  $tags_id = $stmt->fetch();
+
+  //もしtagがDBになかったら登録する、あればスルー
+  if (empty($tags_id)) {
+    $sql = "INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL, '1', :tag ) ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':tag', $tag);
+    $result3 = $stmt->execute();
+    $tags_id = $pdo->lastInsertId();
+  } else {
+    $tags_id = $tags_id['id'];
+  }
+
 
 $last_dead_id = $pdo->lastInsertId();
 
@@ -60,6 +84,15 @@ if (!empty($string_tag)) {
 
 
 
+  $sth->bindValue(':apl_id', $apl_id);
+  $sth->bindValue(':apl_tag', $tags_id);
+  $result2 = $sth->execute();
+
+  if ($result2) {
+    echo '登録成功！';
+  } else {
+    echo '登録失敗';
+  }
 //チェック用
 if ($result1) {
     header('Location: ./list.php');
