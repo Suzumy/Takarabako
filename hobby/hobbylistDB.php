@@ -16,7 +16,7 @@ if (isset($_POST['tag'])) {
     $hobby_tag = $_POST['tag'];
     //プルダウンの選択が全てなら全部表示
     if ($hobby_tag == '全て') {
-        $sql = "SELECT*FROM hobbys 
+        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
         LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
         LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id";
         $stmt =  $pdo->prepare($sql);
@@ -27,8 +27,7 @@ if (isset($_POST['tag'])) {
     } else {
         //プレースホルダにするべきかも
         //tagを確認
-        echo  'tag'.$hobby_tag ;
-        $sql = "SELECT*FROM hobbys 
+        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
         LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
         LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag";
            $stmt =  $pdo->prepare($sql);
@@ -39,7 +38,7 @@ if (isset($_POST['tag'])) {
     }
     //$tagに変数がない場合
 } else {
-    $sql = "SELECT* FROM hobbys 
+    $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
     LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
     LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id";
     $stmt =  $pdo->prepare($sql);
