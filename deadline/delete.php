@@ -11,6 +11,7 @@ if (isset($_POST['back'])) {
     header('Location: list.php');
 }
 
+
 $sql = "DELETE  FROM apl_tag WHERE apl_id =:apl_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':apl_id', $apl_id);
@@ -19,6 +20,7 @@ $stmt->execute();
 $sql = "DELETE  FROM application_lists WHERE id =:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $apl_id);
+
 $result = $stmt->execute();
 ?>
 

@@ -3,13 +3,14 @@
 require_once '../util.php';
 //編集ボタンを押した要素の取得
 $id = $_POST['id'];
-$URL = $_POST['URL'];
-$hobby_tag = $_POST['hobby_tag'];
+$day_at = $_POST['day_at'];
+$hobby_tag = $_POST['tag'];
 $memo = $_POST['memo'];
+$URL = $_POST['URL'];
 
 //締め切り一覧に戻るボタンの処理
 if (isset($_POST['back'])) {
-    header('Location: hobbylist.php');
+    header('Location: list.php');
 }
 
 ?>
@@ -26,10 +27,11 @@ if (isset($_POST['back'])) {
     <form method="POST" action="editcheck.php">
         <table>
             <tr>
+                //元のURLを比較用に表示する
                 <td> URL <input type="text" name="URL" value=<?= h($URL) ?> required></td>
             </tr>
             <tr>
-                <td>タグ<input type="text" name="hobby_tag" value=<?= h($hobby_tag) ?>required></td>
+                <td>タグ<input type="text" name="hobby_tag" value=<?= h($hobby_tag) ?> required></td>
             </tr>
             <tr>
                 <td>メモ<input type="text" name="memo" value=<?= h($memo) ?> required></td>
