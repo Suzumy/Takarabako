@@ -27,7 +27,7 @@ require_once 'hobbylistDB.php';
             //絞り込みができていない
             //tagを取得 
             foreach ($tags as $tag) {
-                $tags_list = "<option value='" . h($tags['tag']);
+                $tags_list = "<option value='" . h($tag['tag']);
                 $tags_list .= "'>" . h($tag['tag']) . "</option>";
                 echo $tags_list;
             }
