@@ -44,12 +44,25 @@ require_once 'hobbylistDB.php';
         </tr>
 
         <?php
+        $idcheck = '';
         foreach ($tasks as $task) {
+            $id = $task['id'];
+            if($id!=$idcheck){
         ?>
+
             <tr>
                 <td><?php echo h($task['memo']); ?></td>
                 <td><?php echo h($task['day_at']); ?></td>
-                <td><?php echo h($task['tag']); ?></td>
+                <td>
+                    <?php
+
+                    foreach ($tasks as $task) {
+                        if ($id == $task['id']) {
+                            echo h($task['tag']);
+                        }
+                    } ?>
+
+                </td>
                 <td>
                     <!-- 編集画面edit.phpにデータを送信-->
                     <!-- edit.phpをregister_Deadlineと共有にしたい -->
@@ -72,6 +85,8 @@ require_once 'hobbylistDB.php';
                 </td>
             </tr>
         <?php
+            }
+        $idcheck=$id;
         }
         ?>
 
