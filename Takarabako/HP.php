@@ -1,14 +1,14 @@
-<script src="Movescr.js" charset="utf-8"></script>
+<!--<script src="Movescr.js" charset="utf-8"></script>-->
+<script type="text/javascript" src="http://web-designer.cman.jp/freejs/cmanObjMove_v091.js"></script>
+
 <?php
 require_once __DIR__ . '/header.php';
 require_once __DIR__ . '/HP_DB.php';
-
 
 if (empty($_SESSION['id'])) {
     //ログイン画面へ遷移
     header('Location: ./user/login.php');
 }
-
 ?>
 
 <main>
