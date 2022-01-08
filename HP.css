@@ -5,6 +5,7 @@
 
 /*ヘッダー*/
 header{
+  /* background-image: url("old.jpg"); */
   background-color:  #FFB899;
   text-align:center;
   padding:20px 0;
@@ -195,16 +196,22 @@ nav .inner ul li a:hover{
   width: 50%;
   border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
 }
+/* .title{
+  font-family: "ＭＳＰ明朝", serif;/*フォントの変更*/
+  /*border:1px solid #333;/*枠線(divの範囲がどれくらいかを確認)*/
+/*}*/
 
 .contents1{/* twitter */
   position: absolute;
   width: 30%;
+  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 
 .contents2{/* youtube */
   position: absolute;
   width: 30%;
   margin: 0 0 0 30%;/* 上 右 下 左の余白の数値 */
+  /*border:1px solid blue;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 
 .contents3{/* HP */
@@ -212,7 +219,8 @@ nav .inner ul li a:hover{
   width: 30%;
   margin: 0 0 0 60%;/* 上 右 下 左の余白の数値 */
 }
-
+  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/ */
+}
 .font{
   color: #ffff;
   font-size: 30px;
@@ -254,6 +262,8 @@ th, td {
 
 .parent{
   text-align:center;
+
 }
+ }
 
 

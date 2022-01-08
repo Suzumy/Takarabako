@@ -20,18 +20,22 @@ if (isset($_POST['tag'])) {
         LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
         LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id";
         $stmt =  $pdo->prepare($sql);
-        $stme->bindValue(':user_id', $userId);
+        $stmt->bindValue(':user_id', $userId);
+
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
     } else {
         //プレースホルダにするべきかも
-        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL FROM hobbys 
+        //tagを確認
+        $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
         LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
-        LEFT JOIN tags ON hobby_tag.id = tags.id";
-        $stmt = $pdo->query($sql);
-        $stmt->execute();
-        $tasks = $stmt->fetchall();
+        LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag";
+           $stmt =  $pdo->prepare($sql);
+           $stmt->bindValue(':tags_tag', $hobby_tag);
+           $stmt->bindValue(':user_id', $userId);
+           $stmt->execute();
+           $tasks = $stmt->fetchall();
     }
     //$tagに変数がない場合
 } else {
@@ -44,9 +48,8 @@ if (isset($_POST['tag'])) {
     $tasks = $stmt->fetchall();
 }
 //プルダウンにタグを渡す
-//ここは本来はユーザーが持っているタグのみを表示するべき
-//1. tagsにユーザIDの外部キーを持たせる - sqlを修正してタグにユーザーIDを持たせるようにする
-$sql = "SELECT DISTINCT * FROM tags";
-$stmt = $pdo->query($sql);
+$sql = "SELECT DISTINCT tag FROM tags WHERE user_id = :user_id and tag != ' '";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':user_id', $userId);
 $stmt->execute();
 $tags = $stmt->fetchall();
