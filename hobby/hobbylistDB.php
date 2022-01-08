@@ -17,11 +17,11 @@ if (isset($_POST['tag'])) {
     //プルダウンの選択が全てなら全部表示
     if ($hobby_tag == '全て') {
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
-
         LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
         LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id";
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
+
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
@@ -40,7 +40,6 @@ if (isset($_POST['tag'])) {
     //$tagに変数がない場合
 } else {
     $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM hobbys 
-
     LEFT JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id
     LEFT JOIN tags ON hobby_tag.id = tags.id WHERE hobbys.user_id = :user_id";
     $stmt =  $pdo->prepare($sql);

@@ -51,7 +51,6 @@ foreach ($tags as $tag) {
     $tags_id = $tags_id['id'];
   }
 
-
 $last_dead_id = $pdo->lastInsertId();
 
 //タグが空の場合は登録処理が不要のためスキップする
