@@ -30,11 +30,9 @@ if (empty($_SESSION['id'])) {
     <?php
     foreach ($tags as $value) {
     ?>
-    <form method="POST" style="display: inline;">
-        <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
-    </form>
-
-
+        <form method="POST" style="display: inline;">
+            <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
+        </form>
 
     <?php
     }
@@ -45,24 +43,21 @@ if (empty($_SESSION['id'])) {
         $iframe_num = 'frame' . $num;
 
     ?>
-    <img src="box.jpg" cmanOMat="move">
-    <!--imgなら動く-->
 
-    <!--スタイルを直で書いてます-->
-    <div class="contents">
-        <iframe id="frame" width="400px" height="400px" src="">
-            お使いのブラウザはiframeに対応しておりません
-        </iframe>
-    </div>
-    <!-- frameにidを割り当て    -->
-    <script>
-    var iframe_id = document.getElementById('frame')
-    iframe_id.setAttribute('id', '<?php echo $iframe_num; ?>');
-    /*iframeにURL代入   */
-    var url;
-    url = '<?php echo $result; ?>';
-    iframe_id.setAttribute('src', url);
-    </script>
+        <div class="contents" cmanOMat="move" style="border: 6px solid; ">
+            <iframe id="frame" width="400px" height="400px" src="">
+                お使いのブラウザはiframeに対応しておりません
+            </iframe>
+        </div>
+        <!-- frameにidを割り当て    -->
+        <script>
+            var iframe_id = document.getElementById('frame')
+            iframe_id.setAttribute('id', '<?php echo $iframe_num; ?>');
+            /*iframeにURL代入   */
+            var url;
+            url = '<?php echo $result; ?>';
+            iframe_id.setAttribute('src', url);
+        </script>
     <?php
         $num += 1;
     }
