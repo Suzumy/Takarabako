@@ -20,7 +20,7 @@ if ($_SESSION) {
     <title></title>
 </head>
 
-
+<a href="signup.php" class="btn2">新規登録</a>
 
 <form method="POST" action="login_db.php" name="login_form">
 

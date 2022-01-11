@@ -1,16 +1,36 @@
 <?php
 require_once __DIR__ . '/header.php';
 require_once __DIR__ . '/HP_DB.php';
+
+
+if (empty($_SESSION['id'])) {
+  //ログイン画面へ遷移
+  header('Location: ./user/login.php');
+}
+
 ?>
 
 <main>
+  <!-- 後でフロントの人に見た目を整えてもらう 1 -->
+  <p>もうすぐ締め切りのもの</p>
+  <?php
+  if (!$near_deadline == 'false') {
+    echo '現在締め切りの近いものはありません';
+  } else {
+    echo $near_deadline['title'];
+  }
+
+  ?>
+  <!-- 1 ここまで -->
   <div class="title">
     <h1>My Favorite Contents</h1>
   </div>
   <?php
   foreach ($tags as $value) {
   ?>
-    <input type="submit" value="<?php echo $value['tag']; ?>">
+    <form method="POST" style="display: inline;">
+      <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
+    </form>
 
   <?php
   }
@@ -39,6 +59,8 @@ require_once __DIR__ . '/HP_DB.php';
     $num += 1;
   }
   ?>
+
+  <a href="./hobby/register_Hobby.php">新規登録</a>
 </main>
 
 <?php
