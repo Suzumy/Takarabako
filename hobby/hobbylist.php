@@ -60,8 +60,8 @@ require_once 'hobbylistDB.php';
                         if ($id == $task['id']) {
                             echo h($task['tag']);
                         }
-                    } ?>
-
+                    } 
+                ?>
                 </td>
                 <td>
                     <!-- 編集画面edit.phpにデータを送信-->
