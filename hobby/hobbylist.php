@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>趣味一覧画面</title>
+    <link rel="stylesheet" href="../HP.css">
+    <link rel="stylesheet" href="hobby.css">
 </head>
 <?php
 //ヘッダー読み込み
@@ -17,15 +19,17 @@ require_once 'hobbylistDB.php';
 
 ?>
 <!-- ここからサイトの表示-->
-<h1>趣味一覧 </h1>
+<!--  <div class="parent">
+    <h1>趣味一覧</h1>
+</div>-->
 <main>
-
+<div class="test">
     <form method='POST'>
         <select name='tag'>
             <option value='全て'>全て</option>
             <?php
             //絞り込みができていない
-            //tagを取得 
+            //tagを取得
             foreach ($tags as $tag) {
                 $tags_list = "<option value='" . h($tags['tag']);
                 $tags_list .= "'>" . h($tag['tag']) . "</option>";
@@ -33,8 +37,9 @@ require_once 'hobbylistDB.php';
             }
             ?>
         </select>
-        <input type='submit' value='送信' />
+        <input type='submit' value='送信'/>
     </form>
+</div>
     <!-- ここから締め切りリスト-->
     <table border="1">
         <tr>
@@ -77,7 +82,7 @@ require_once 'hobbylistDB.php';
 
     </table>
     <!-- //登録画面に遷移 -->
-    <a href="./register_Hobby.php">登録</a>
+    <a href="./register_Hobby.php" class="test2">登録</a>
     <script src="../script.js"></script>
 
 </main>

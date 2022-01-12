@@ -10,8 +10,6 @@ header{
   padding:20px 0;
 }
 
-
-
 /* 背景色 */
 body{
   background-color:  #FFB899;
@@ -19,7 +17,7 @@ body{
 
 
 /* ログイン、新規登録 */
-.btn,.btn2,.btn3{
+.btn,.btn3{
   border-radius: 5px;
   background-color: #004766;
   padding: 10px;
@@ -182,36 +180,19 @@ nav .inner ul li a:hover{
 /*mainコンテンツ*/
 /* 締め切り機能 */
 .main0{
-  display: flex;
+  /*  display: flex;*/
 }
+
 .main1{
-  width: 50%;
+  /* width: 50%;
   height: 100%;
-  margin-left: auto;
-  border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
+  margin-left: auto; */
 }
 
 .main2{
-  width: 50%;
-  border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
+  /* float: left; */
 }
 
-.contents1{/* twitter */
-  position: absolute;
-  width: 30%;
-}
-
-.contents2{/* youtube */
-  position: absolute;
-  width: 30%;
-  margin: 0 0 0 30%;/* 上 右 下 左の余白の数値 */
-}
-
-.contents3{/* HP */
-  position: absolute;
-  width: 30%;
-  margin: 0 0 0 60%;/* 上 右 下 左の余白の数値 */
-}
 
 .font{
   color: #ffff;
