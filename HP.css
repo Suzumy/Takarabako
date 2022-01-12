@@ -189,12 +189,12 @@ nav .inner ul li a:hover{
   width: 50%;
   height: 100%;
   margin-left: auto;
-  border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
+  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 
 .main2{
   width: 50%;
-  border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
+  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 /* .title{
   font-family: "ＭＳＰ明朝", serif;/*フォントの変更*/
