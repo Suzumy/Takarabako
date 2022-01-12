@@ -1,0 +1,292 @@
+*{
+  margin: 0px;/*外側の余白なし*/
+	padding: 0px;/*内側の余白なし*/
+}
+
+/*ヘッダー*/
+header{
+  /* background-image: url("old.jpg"); */
+  background-color:  #FFB899;
+  text-align:center;
+  padding:20px 0;
+}
+
+
+/* 背景色 */
+body{
+  background-color:  #FFB899;
+  background-image: url("background_box.png"),
+                    url("background_gold.png"),
+                    url("background_coin.png"),
+                    url("background_coin.png");
+                    
+  background-size: 25% auto,
+                   15% auto,
+                   5% auto,
+                   5% auto;
+  background-position: right bottom,
+                       left bottom,
+                       20% 40%,
+                       80% 20%;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* ログイン、新規登録 */
+.btn,.btn2,.btn3{
+  border-radius: 5px;
+  background-color: #004766;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  float: right;
+  position: relative;
+  bottom: 50px;
+  right: 10px;
+}
+
+.btn2{
+  border-radius: 5px;
+  background-color: black;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  float: right;
+  position: relative;
+  bottom: 60px;
+  right: 20px;
+}
+
+
+.image1{
+  /*宝箱の画像*/
+  position: absolute;
+  padding: 10px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+body{
+  font-weight: 400;
+}
+
+main{
+  padding:50px;
+}
+
+
+.titlefont{
+  color: #ffff;
+  font-size: 45px;
+  font-weight: 400;
+  text-align: center;
+}
+
+nav{
+  display: block;
+  width: 220px;
+  position: fixed;
+  background-color: #ffffff;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.open nav{
+  left:0;
+  opacity: 1;
+}
+
+nav .inner{
+  padding:25px;
+}
+
+nav .inner ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav .inner ul li{
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+nav .inner ul li a{
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 1rem;
+  transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover{
+  background-color: #e4e4e4;
+}
+
+/*ハンバーガーアイコン*/
+.toggle-btn{
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  height: 30px;
+  z-index: 30px;
+  cursor: pointer;
+}
+
+.toggle-btn span{
+  position: absolute;
+  display: block;
+  left: 20px;
+  left: 10px;
+  width: 30px;
+  height: 5px;
+  /*background-color: #333;/*後で消す*/
+  transition: all 0.5s;
+  border-radius: 4px;
+}
+
+.toggle-btn span:nth-child(1){
+  top: 3px;
+}
+
+.toggle-btn span:nth-child(2){
+  top: 14px;
+}
+
+.toggle-btn span:nth-child(3){
+  bottom: 1px;
+}
+
+.open .toggle-btn span{
+  /*background-color: #fff;/*後で消す*/
+}
+
+#mask{
+  display: none;
+  transition:all 0.5s;
+}
+
+.open #mask{
+  display: block;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/*mainコンテンツ*/
+
+
+.font{
+  color: #ffff;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.example{
+  position: relative;/*相対配置*/
+}
+
+/* テーブルを常に画面中心に配置 */
+table {
+  margin: 0px auto 20px;
+  background-color: #FFB899;
+}
+
+
+/* テーブルの枠線を灰色の1pxの直線とし、1本にまとめる */
+table, th, td {
+  border: 1px solid #004766;
+  border-collapse: collapse;
+}
+
+/* セル内の上下の余白を3px、左右の余白を10pxに */
+th, td {
+  padding: 3px 10px 3px 10px;
+}
+
+/* セル内のデータを右詰め表示 */
+.td_right {
+  text-align: right;
+}
+
+/* セル内のデータをセンター表示 */
+.td_center {
+  text-align: center;
+}
+
+/* リンクをボタンに見せるやつ */
+.btn3{
+  position: static;
+  float: none;
+}
+
+.parent{
+  text-align:center;
+ }
+
+form{
+  text-align:center;
+}
+
+.styled-select {
+  /* 👇デフォルトのスタイルを解除 */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /* 👇スタイル */
+  display: inline-block;
+  width: 100%; /* 幅 */
+  max-width: 150px; /* 最大幅 */
+  margin: 1.6em 20px; /* 前後の余白 */
+  padding: 0.6em 1.5em 0.6em 0.5em; /* 文字周りの余白 */
+  cursor: pointer; /* カーソルを指に */
+  line-height: 1.4; /* 行高 */
+  font-size: 0.95em; /* フォントサイズ */
+  font-weight: 700; /* 太字に */
+  color: #333; /* 文字色 */
+  border-radius: 4px; /* 角丸 */
+  background-color: #f7f9fb; /* 背景色 */
+  border: solid 1px #e1e8ef; /* 枠線 */
+  box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+  /* 👇三角マークを作る */
+  background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+}
+/* フォーカス時 */
+.styled-select:focus {
+  outline: 0;
+  border-color: #b0c5ff; /* 枠線色を変更 */
+}
+/* IEでデフォルトの矢印を消す */
+.styled-select::-ms-expand {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
