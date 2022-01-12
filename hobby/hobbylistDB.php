@@ -19,8 +19,10 @@ if (isset($_POST['tag'])) {
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
         INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
         INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
+
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
@@ -41,6 +43,7 @@ if (isset($_POST['tag'])) {
     $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
     INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
     INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+
     $stmt =  $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $userId);
     $stmt->execute();

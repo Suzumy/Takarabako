@@ -56,40 +56,6 @@ foreach ($tags as $tag) {
         $tags_id = $tags_id['id'];
     }
 
-<<<<<<< Updated upstream
-//タグが空の場合は登録処理が不要のためスキップする
-if (!empty($string_tag)) {
-    //tagsテーブルへのレコード追加
-    //複数のタグを分ける処理
-    $tag_id_array = array(); //arrayの初期化
-    $tag = explode(" ", $string_tag);
-    foreach ($tag as $t) {
-        $sql = "insert into tags (tag, user_id) values (:tag, :user_id)";
-        $sth = $pdo->prepare($sql);
-        $sth->bindValue(':tag', $t, PDO::PARAM_STR);
-        $sth->bindValue(':user_id', $userId, PDO::PARAM_STR);
-        $result = $sth->execute();
-        $last_tag_id = $pdo->lastInsertId();
-        array_push($tag_id_array, $last_tag_id);
-    }
-
-
-=======
-<<<<<<< HEAD
-    $sql = "INSERT INTO `apl_tag` (`id`,`apl_id`, `tag_id`) VALUES (NULL, :apl_id,:tag_id)";
-    $sth = $pdo->prepare($sql);
-    $sth->bindValue(':apl_id', $apl_id );
-    $sth->bindValue(':tag_id', $tags_id);
-    $result2 = $sth->execute();
-}
-
-
-//チェック用
-if ($result2) {
-    header('Location: ./list.php');
-} else {
-    echo '1,失敗';
-=======
 $last_dead_id = $pdo->lastInsertId();
 
 //タグが空の場合は登録処理が不要のためスキップする
@@ -109,7 +75,6 @@ if (!empty($string_tag)) {
     }
 
 
->>>>>>> Stashed changes
     //上二つ登録したidをapl_tagテーブルへ登録する
     foreach ($tag_id_array as $t) {
         $sql = "insert into apl_tag (apl_id, tag_id) values(:apl_id, :tag_id)";
@@ -137,8 +102,4 @@ if ($result1) {
     header('Location: ./list.php');
 } else {
     echo '1失敗';
-<<<<<<< Updated upstream
-=======
->>>>>>> b6dd4a010bc0ffa3c72f109d0a05f65c6f6755ec
->>>>>>> Stashed changes
 }

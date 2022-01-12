@@ -21,12 +21,13 @@ require_once 'hobbylistDB.php';
 <main>
 
     <form method='POST'>
-        <select name='tag'>
+        <select class="styled-select" name='tag'>
             <option value='全て'>全て</option>
             <?php
             //絞り込みができていない
             //tagを取得 
             foreach ($tags as $tag) {
+
                 $tags_list = "<option value='" . h($tag['tag']);
                 $tags_list .= "'>" . h($tag['tag']) . "</option>";
                 echo $tags_list;
@@ -44,17 +45,18 @@ require_once 'hobbylistDB.php';
         </tr>
 
         <?php
+
         $idcheck = '';
         foreach ($tasks as $task) {
             $id = $task['id'];
-            if($id!=$idcheck){
+            if ($id != $idcheck) {
         ?>
 
-            <tr>
-                <td><?php echo h($task['memo']); ?></td>
-                <td><?php echo h($task['day_at']); ?></td>
-                <td>
-                    <?php
+                <tr>
+                    <td><?php echo h($task['memo']); ?></td>
+                    <td><?php echo h($task['day_at']); ?></td>
+                    <td>
+                        <?php
 
                     foreach ($tasks as $task) {
                         if ($id == $task['id']) {
@@ -85,14 +87,17 @@ require_once 'hobbylistDB.php';
                 </td>
             </tr>
         <?php
+
             }
-        $idcheck=$id;
+            $idcheck = $id;
         }
         ?>
 
     </table>
     <!-- //登録画面に遷移 -->
-    <a href="./register_Hobby.php">登録</a>
+    <div class="parent">
+        <a class="btn3" href="register_Deadline.php">登録</a>
+    </div>
     <script src="../script.js"></script>
 
 </main>
