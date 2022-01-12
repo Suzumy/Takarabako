@@ -17,6 +17,8 @@ if (empty($_SESSION['id'])) {
     <?php
     foreach ($tags as $value) {
     ?>
+  <!-- 1 ここまで -->
+  ?>
     <form method="POST" style="display: inline;">
       <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
     </form>

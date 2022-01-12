@@ -5,6 +5,7 @@
 
 /*ヘッダー*/
 header{
+  /* background-image: url("old.jpg"); */
   background-color:  #FFB899;
   text-align:center;
   padding:20px 0;
@@ -193,7 +194,6 @@ nav .inner ul li a:hover{
   /* float: left; */
 }
 
-
 .font{
   color: #ffff;
   font-size: 30px;
@@ -235,6 +235,8 @@ th, td {
 
 .parent{
   text-align:center;
+
 }
+ }
 
 
