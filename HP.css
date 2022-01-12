@@ -139,7 +139,7 @@ nav .inner ul li a:hover{
   left: 20px;
   width: 30px;
   height: 5px;
-  /*background-color: #333;/*後で消す*/
+  background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -192,13 +192,12 @@ nav .inner ul li a:hover{
 }
 
 .main1{
-  /* width: 50%;
-  height: 100%;
-  margin-left: auto; */
+  width: 80%;
+  margin:0 auto;
 }
 
 .main2{
-  /* float: left; */
+  display: inline-block;
 }
 
 
