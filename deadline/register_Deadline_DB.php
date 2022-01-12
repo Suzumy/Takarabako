@@ -27,34 +27,29 @@ $result1 = $sth->execute();
 #格納したidを取得lasrinsertid()
 $apl_id = $pdo->lastInsertId();
 
-
-#tagsへの登録処理
-#複数のタグをスペースで分割する
 $tag = preg_replace('/　/', ' ', $tag); //全角スペースを半角スペースへ
 $tag = preg_replace('/\s+/', ' ', $tag); //連続する半角スペースを1つの半角スペースへ
 //" "で区切る
 $tags = explode(" ", $tag);
 //tagの個数分登録を繰り返す
-
 foreach ($tags as $tag) {
-    //tag_idの取得
-    $sql = 'SELECT * FROM tags WHERE tag=:tag';
+  //tag_idの取得
+  $sql = 'SELECT * FROM tags WHERE tag=:tag';
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':tag', $tag);
+  $stmt->execute();
+  $tags_id = $stmt->fetch();
+
+  //もしtagがDBになかったら登録する、あればスルー
+  if (empty($tags_id)) {
+    $sql = "INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL, '1', :tag ) ";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':tag', $tag);
-    $stmt->execute();
-    $tags_id = $stmt->fetch();
-
-    //もしtagがDBになかったら登録する、あればスルー
-    if (empty($tags_id)) {
-        $sql = "INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL,  :user_id, :tag ) ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':user_id', $userId);
-        $stmt->bindValue(':tag', $tag);
-        $stmt->execute();
-        $tags_id = $pdo->lastInsertId();
-    } else {
-        $tags_id = $tags_id['id'];
-    }
+    $result3 = $stmt->execute();
+    $tags_id = $pdo->lastInsertId();
+  } else {
+    $tags_id = $tags_id['id'];
+  }
 
 $last_dead_id = $pdo->lastInsertId();
 
