@@ -60,9 +60,9 @@ if (empty($_SESSION['id'])) {
       </script>
 
       <?php
-        $num += 1;
-      }
-      ?>
+      $num += 1;
+    }
+    ?>
 
     <a href="./hobby/register_Hobby.php"><img src="plus.jpg" alt="新規登録" class="image2"></a>
   </div>

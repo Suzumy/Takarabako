@@ -5,10 +5,12 @@
 
 /*ヘッダー*/
 header{
+  /* background-image: url("old.jpg"); */
   background-color:  #FFB899;
   text-align:center;
   padding:20px 0;
 }
+
 
 /* 背景色 */
 body{
@@ -17,7 +19,7 @@ body{
 
 
 /* ログイン、新規登録 */
-.btn,.btn3{
+.btn,.btn2,.btn3{
   border-radius: 5px;
   background-color: #004766;
   padding: 10px;
@@ -51,16 +53,6 @@ body{
   height: 50px;
 }
 
-.image2{
-  /*プラスボタンの画像*/
-  position: absolute;
-  padding: 10px;
-  left: 30px;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-}
-
 body{
   font-weight: 400;
 }
@@ -68,6 +60,7 @@ body{
 main{
   padding:50px;
 }
+
 
 .titlefont{
   color: #ffff;
@@ -139,7 +132,7 @@ nav .inner ul li a:hover{
   left: 20px;
   width: 30px;
   height: 5px;
-  background-color: #333;/*後で消す*/
+  /*background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -178,37 +171,6 @@ nav .inner ul li a:hover{
 }
 
 /*mainコンテンツ*/
-/* 締め切り機能 */
-.main0{
-  display: flex;
-}
-
-.tag0{
-  float: left;
-.main1{
-  width: 50%;
-  height: 100%;
-  margin-left: auto;
-  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
-}
-
-.main2{
-  width: 50%;
-  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
-}
-
-.simekiri{
-  margin: 0 0 0 auto;
-}
-
-.main1{
-  width: 80%;
-  margin:0 auto;
-}
-
-.main2{
-  display: inline-block;
-}
 
 
 .font{
@@ -252,6 +214,16 @@ th, td {
 
 .parent{
   text-align:center;
-}
+ }
+
+
+
+
+
+
+
+
+
+
 
 

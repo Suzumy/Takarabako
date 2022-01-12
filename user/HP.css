@@ -139,7 +139,7 @@ nav .inner ul li a:hover{
   left: 20px;
   width: 30px;
   height: 5px;
-  background-color: #333;/*後で消す*/
+  /*background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -181,20 +181,11 @@ nav .inner ul li a:hover{
 /* 締め切り機能 */
 .main0{
   display: flex;
+  border: 1px solid green;
 }
 
 .tag0{
   float: left;
-.main1{
-  width: 50%;
-  height: 100%;
-  margin-left: auto;
-  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
-}
-
-.main2{
-  width: 50%;
-  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 
 .simekiri{
@@ -202,12 +193,13 @@ nav .inner ul li a:hover{
 }
 
 .main1{
-  width: 80%;
-  margin:0 auto;
+  /* width: 50%;
+  height: 100%;
+  margin-left: auto; */
 }
 
 .main2{
-  display: inline-block;
+  /* float: left; */
 }
 
 
