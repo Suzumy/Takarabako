@@ -14,8 +14,6 @@ if (empty($_SESSION['id'])) {
   <!-- この機能を右に移動する 1 -->
 <div class="main0">
   <div class="main2">
-    <h1>My Favorite Contents</h1>
-
     <?php
     foreach ($tags as $value) {
     ?>
@@ -33,11 +31,9 @@ if (empty($_SESSION['id'])) {
       $result = str_replace("http://", "https://", $value['URL'], $n);
       $iframe_num = 'frame' . $num;
     ?>
-      <div class="contents">
-      <iframe id="frame" width="100%" height="400px" src="">
-        お使いのブラウザはiframeに対応しておりません
-      </iframe>
-      </div>
+        <iframe id="frame" width="300px" height="300px" src="">
+          お使いのブラウザはiframeに対応しておりません
+        </iframe>
       <!-- frameにidを割り当て    -->
       <script>
         var iframe_id = document.getElementById('frame')
@@ -56,7 +52,7 @@ if (empty($_SESSION['id'])) {
     <a href="./hobby/register_Hobby.php"><img src="plus.jpg" alt="新規登録" class="image2"></a>
   </div>
 
-  <div class="main1">
+  <!-- <div class="main1">
     <p>もうすぐ締め切りのもの</p>
     <?php
     if ($near_deadline == 'false') {
@@ -65,8 +61,7 @@ if (empty($_SESSION['id'])) {
       echo $near_deadline['title'];
     }
     ?>
-  <!-- 1 ここまで -->
-  </div>
+  </div> -->
 </div>
 </main>
 
