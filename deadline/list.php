@@ -81,68 +81,6 @@ require_once 'listDB.php';
             <?php
             }
             ?>
-        </select>
-        <input type='submit' value='送信' />
-
-
-
-    </form>
-    <!-- ここから締め切りリスト-->
-    <table border="1">
-        <tr>
-            <th>タイトル</th>
-            <th>締切日</th>
-            <th>詳細</th>
-            <th>タグ</th>
-        </tr>
-
-        <?php
-        $idcheck = '';
-        foreach ($tasks as $task) {
-            $id = $task['id'];
-            if ($id != $idcheck) {
-        ?>
-                <tr>
-                    <td><?php echo h($task['title']); ?></td>
-                    <td><?php echo h($task['deadline']); ?></td>
-                    <td><?php echo h($task['detail']); ?></td>
-                    <td>
-                        <?php
-
-                        foreach ($tasks as $task) {
-                            if ($id == $task['id']) {
-                                echo h($task['tag']);
-                            }
-                        }
-                        ?>
-                    </td>
-                    <td>
-                        <!-- 編集画面edit.phpにデータを送信-->
-                        <!-- edit.phpをregister_Deadlineと共有にしたい -->
-                        <form action="edit.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $task['id']; ?>">
-                            <input type="hidden" name="title" value="<?= $task['title']; ?>">
-                            <input type="hidden" name="detail" value="<?= $task['detail']; ?>">
-                            <input type="hidden" name="deadline" value="<?= $task['deadline']; ?>">
-                            <input type="submit" name="btn" value="編集">
-                        </form>
-                        <!-- 削除画面delete.phpにデータを送信-->
-                        <form action="delete.php" method="POST">
-                            <input type="hidden" name="title" value="<?= $task['title']; ?>">
-                            <input type="hidden" name="detail" value="<?= $task['detail']; ?>">
-                            <input type="hidden" name="deadline" value="<?= $task['deadline']; ?>">
-                            <input type="hidden" name="id" value="<?= $task['id']; ?>">
-                            <input type="submit" name="btn" value="削除">
-                        </form>
-                    </td>
-                </tr>
-        <?php
-            }
-            $idcheck = $id;
-        }
-        ?>
-
-    </table>
 
         </table>
     </div>
