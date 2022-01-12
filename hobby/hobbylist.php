@@ -25,7 +25,7 @@ require_once 'hobbylistDB.php';
 <main>
 <div class="test">
     <form method='POST'>
-        <select name='tag'>
+        <select class="styled-select" name='tag'>
             <option value='全て'>全て</option>
             <?php
             //絞り込みができていない
@@ -50,11 +50,23 @@ require_once 'hobbylistDB.php';
 
         <?php
         foreach ($tasks as $task) {
+            $id = $task['id'];
+            if ($id != $idcheck) {
         ?>
-            <tr>
-                <td><?php echo h($task['memo']); ?></td>
-                <td><?php echo h($task['day_at']); ?></td>
-                <td><?php echo h($task['tag']); ?></td>
+
+                <tr>
+                    <td><?php echo h($task['memo']); ?></td>
+                    <td><?php echo h($task['day_at']); ?></td>
+                    <td>
+                        <?php
+
+                    foreach ($tasks as $task) {
+                        if ($id == $task['id']) {
+                            echo h($task['tag']);
+                        }
+                    } 
+                ?>
+                </td>
                 <td>
                     <!-- 編集画面edit.phpにデータを送信-->
                     <!-- edit.phpをregister_Deadlineと共有にしたい -->
@@ -77,12 +89,17 @@ require_once 'hobbylistDB.php';
                 </td>
             </tr>
         <?php
+
+            }
+            $idcheck = $id;
         }
         ?>
 
     </table>
     <!-- //登録画面に遷移 -->
-    <a href="./register_Hobby.php" class="test2">登録</a>
+    <div class="parent">
+        <a class="btn3" href="register_Deadline.php">登録</a>
+    </div>
     <script src="../script.js"></script>
 
 </main>
