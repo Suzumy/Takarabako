@@ -185,17 +185,9 @@ nav .inner ul li a:hover{
 
 .tag0{
   float: left;
-.main1{
-  width: 50%;
-  height: 100%;
-  margin-left: auto;
-  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
 }
 
-.main2{
-  width: 50%;
-  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
-}
+
 
 .simekiri{
   margin: 0 0 0 auto;
