@@ -148,7 +148,7 @@ nav .inner ul li a:hover{
   left: 20px;
   width: 30px;
   height: 5px;
-  /*background-color: #333;/*後で消す*/
+  background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
