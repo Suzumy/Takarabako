@@ -61,8 +61,6 @@ main{
   padding:50px;
 }
 
-
-
 .titlefont{
   color: #ffff;
   font-size: 45px;
@@ -148,10 +146,6 @@ nav .inner ul li a:hover{
 
 .toggle-btn span:nth-child(3){
   bottom: 1px;
-}
-
-.open .toggle-btn span{
-  /*background-color: #fff;/*後で消す*/
 }
 
 #mask{
