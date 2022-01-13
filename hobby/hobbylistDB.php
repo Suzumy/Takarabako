@@ -21,7 +21,7 @@ if (isset($_POST['tag'])) {
         INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
 
         $stmt =  $pdo->prepare($sql);
-        $stme->bindValue(':user_id', $userId);
+        $stmt->bindValue(':user_id', $userId);
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
