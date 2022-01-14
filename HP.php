@@ -44,7 +44,8 @@ if (empty($_SESSION['id'])) {
 
     ?>
 
-    <div class="contents" cmanOMat="move" style="border: 6px solid; border-top-width:25px; ">
+    <div class="contents" cmanOMat="move" id="contents"
+        style="  border: 6px solid; border-top-width:25px; color:#FFDACC">
         <iframe id="frame" width="400px" height="400px" src="">
             お使いのブラウザはiframeに対応しておりません
         </iframe>
