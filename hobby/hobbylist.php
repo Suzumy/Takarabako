@@ -38,14 +38,15 @@ require_once 'hobbylistDB.php';
     <!-- ここから締め切りリスト-->
     <table border="1">
         <tr>
-            <th>id</th>
             <th>メモ</th>
             <th>タグ</th>
         </tr>
 
         <?php
         $idcheck = '';
+       
         foreach ($tasks as $value) {
+            $tagedit=''; 
             $id = $value['id'];
             if ($id != $idcheck) {
         ?>
@@ -58,9 +59,15 @@ require_once 'hobbylistDB.php';
 
                         foreach ($tasks as $task) {
                             if ($id == $task['id']) {
-                                echo h($task['tag']);
-                                $tagedit=$task['tag'];
+                                echo h(' '.$task['tag']);
+                                if(empty($tagedit)){
+                                    $tagedit .=$task['tag'];
+                                }else{
+                                     $tagedit .= str_replace('#', ' #', $task['tag'] );  
+                                }
+                              
                             }
+                         
                         }
                         ?>
                     </td>
@@ -71,7 +78,7 @@ require_once 'hobbylistDB.php';
                             <input type="hidden" name="URL" value="<?= $value['URL']; ?>">
                             <input type="hidden" name="day_at" value="<?= $value['day_at']; ?>">
                             <input type="hidden" name="memo" value="<?= $value['memo']; ?>">
-                            <input type="hidden" name="tag" value="<?= $tagedit; ?>">
+                            <input type="hidden" name="tag" value="<?=  $tagedit  ; ?>">
                             <input type="hidden" name="id" value="<?= $value['id']; ?>">
                             <input type="submit" name="btn" value="編集">
                         </form>
