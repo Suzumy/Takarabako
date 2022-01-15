@@ -41,6 +41,7 @@ if (empty($_POST['tag'])) {
 
 
 #締め切りの内一番締め切りが近いものをとってくる
+
 $sql = "SELECT * FROM `application_lists` WHERE user_id = :user_id AND deadline > now() ORDER BY deadline LIMIT 1";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $userId);

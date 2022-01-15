@@ -206,7 +206,6 @@ table {
   background-color: #FFB899;
 }
 
-
 /* テーブルの枠線を灰色の1pxの直線とし、1本にまとめる */
 table, th, td {
   border: 1px solid #004766;

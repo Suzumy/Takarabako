@@ -1,6 +1,11 @@
+
+<!--<script src="Movescr.js" charset="utf-8"></script>-->
+<script type="text/javascript" src="http://web-designer.cman.jp/freejs/cmanObjMove_v091.js"></script>
+
 <?php
 require_once __DIR__ . '/header.php';
 require_once __DIR__ . '/HP_DB.php';
+
 
 
 if (empty($_SESSION['id'])) {
@@ -46,9 +51,12 @@ if (empty($_SESSION['id'])) {
       $result = str_replace("http://", "https://", $value['URL'], $n);
       $iframe_num = 'frame' . $num;
     ?>
-        <iframe id="frame" width="300px" height="300px" src="">
-          お使いのブラウザはiframeに対応しておりません
+        <div class="contents" cmanOMat="move" id="contents"
+        style="  border: 6px solid; border-top-width:25px; color:#FFDACC">
+        <iframe id="frame" width="400px" height="400px" src="">
+            お使いのブラウザはiframeに対応しておりません
         </iframe>
+    </div>
       <!-- frameにidを割り当て    -->
       <script>
         var iframe_id = document.getElementById('frame')
