@@ -24,4 +24,9 @@ if ($count == 0) {
     //一番近い期限のやつを出力
     $alert = "<script type='text/javascript'>alert('" . h($month) . "月" . h($day) . "日までの" . h($title) . "の応募期限が近づいています');</script>";
 }
-echo $alert;
+
+if(empty($_COOKIE["time"])){
+        echo $alert;
+}
+$time = date("Y/m/d H:i:s");
+setcookie("time", $time,time()+60*60*24);

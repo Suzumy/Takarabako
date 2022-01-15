@@ -28,9 +28,8 @@ require_once 'listDB.php';
 
     <h1 class="font">締め切り一覧 </h1>
 
-
-    <form method='POST'>
-        <select name='tag'>
+    <form class="form" method='POST'>
+        <select class="styled-select" name='tag'>
             <option value='全て'>全て</option>
             <?php
             //tagを取得 
@@ -42,9 +41,6 @@ require_once 'listDB.php';
             ?>
         </select>
         <input type='submit' value='送信' />
-
-
-
     </form>
     <!-- ここから締め切りリスト-->
     <table border="1">
@@ -86,7 +82,6 @@ require_once 'listDB.php';
         ?>
 
     </table>
-
     <div class="parent">
         <a class="btn3" href="register_Deadline.php">新規登録</a>
     </div>

@@ -23,36 +23,42 @@ $hobby_id = $pdo->lastInsertId(); //挿入したレコードのidを取得
 
 #tagsへの登録処理
 #複数のタグをスペースで分割する
-$tag_array = array(); //arrayの初期化
-$tag = explode(" ", $tag); //タグの分割
-foreach ($tag as $t) {
-    #タグへの挿入処理
-    $sql = "insert into tags (tag, user_id) values (:tag, :user_id)";
-    $sth = $pdo->prepare($sql);
-    $sth->bindValue(':tag', $t, PDO::PARAM_STR);
-    $sth->bindValue(':user_id', $userId, PDO::PARAM_STR);
-    $result = $sth->execute();
-    #hobby_tagテーブルへ挿入するための準備
-    $last_tag_id = $pdo->lastInsertId();
-    array_push($tag_array, $last_tag_id);
-}
-// $sql="INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL, '1', :tag ); ";
-// $sth = $pdo -> prepare($sql);
-// $sth -> bindValue(':tag' , $tag); 
-// $result2=$sth -> execute();
+$tag = preg_replace('/　/', ' ', $tag); //全角スペースを半角スペースへ
+$tag = preg_replace('/\s+/', ' ', $tag); //連続する半角スペースを1つの半角スペースへ
+//" "で区切る
+$tags = explode(" ", $tag);
+//tagの個数分登録を繰り返す
 
-#hobby_tagへの登録処理
-//上二つ登録したidをhobby_tagテーブルへ登録する
-foreach ($tag_array as $t) {
-    $sql = "insert into hobby_tag (hobby_id, tag_id) values(:hobby_id, :tag_id)";
+foreach ($tags as $tag) {
+    //tag_idの取得
+    $sql = 'SELECT * FROM tags WHERE tag=:tag';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':tag', $tag);
+    $stmt->execute();
+    $tags_id = $stmt->fetch();
+
+    //もしtagがDBになかったら登録する、あればスルー
+    if (empty($tags_id)) {
+        $sql = "INSERT INTO `tags` (`id`, `user_id`, `tag`) VALUES (NULL,  :user_id, :tag ) ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->bindValue(':tag', $tag);
+        $stmt->execute();
+        $tags_id = $pdo->lastInsertId();
+    } else {
+        $tags_id = $tags_id['id'];
+    }
+
+    $sql = "INSERT INTO `hobby_tag` (`id`,`hobby_id`, `tag_id`) VALUES (NULL, :hobby_id,:tag_id)";
     $sth = $pdo->prepare($sql);
-    $sth->bindValue(':hobby_id', $hobby_id);
-    $sth->bindValue(':tag_id', $t);
-    $result = $sth->execute();
+    $sth->bindValue(':hobby_id', $hobby_id );
+    $sth->bindValue(':tag_id', $tags_id);
+    $result2 = $sth->execute();
 }
+
 
 //チェック用
-if ($result1) {
+if ($result2) {
     header('Location: ./hobbylist.php');
 } else {
     echo '1,失敗';

@@ -15,6 +15,22 @@ header{
 /* 背景色 */
 body{
   background-color:  #FFB899;
+  background-image: url("background_box.png"),
+                    url("background_gold.png"),
+                    url("background_coin.png"),
+                    url("background_coin.png");
+                    
+  background-size: 25% auto,
+                   15% auto,
+                   5% auto,
+                   5% auto;
+  background-position: right bottom,
+                       left bottom,
+                       20% 40%,
+                       80% 20%;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -39,14 +55,15 @@ body{
   color: white;
   float: right;
   position: relative;
-  bottom: 50px;
+  bottom: 60px;
   right: 20px;
 }
 
 
 .image1{
-  /*float: left;*/
+  /*宝箱の画像*/
   position: absolute;
+  padding: 10px;
   left: 30px;
   width: 50px;
   height: 50px;
@@ -117,8 +134,8 @@ nav .inner ul li a:hover{
 /*ハンバーガーアイコン*/
 .toggle-btn{
   display: block;
-  position: fixed;
-  top: 30px;
+  position: absolute;
+  top: 40px;
   left: 30px;
   height: 30px;
   z-index: 30px;
@@ -128,10 +145,10 @@ nav .inner ul li a:hover{
 .toggle-btn span{
   position: absolute;
   display: block;
-  left: 10px;
+  left: 20px;
   width: 30px;
   height: 5px;
-  /*background-color: #333;/*後で消す*/
+  background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -179,9 +196,14 @@ nav .inner ul li a:hover{
   text-align: center;
 }
 
+.example{
+  position: relative;/*相対配置*/
+}
+
 /* テーブルを常に画面中心に配置 */
 table {
   margin: 0px auto 20px;
+  background-color: #FFB899;
 }
 
 /* テーブルの枠線を灰色の1pxの直線とし、1本にまとめる */
@@ -214,6 +236,46 @@ th, td {
 .parent{
   text-align:center;
  }
+
+form{
+  text-align:center;
+}
+
+.styled-select {
+  /* 👇デフォルトのスタイルを解除 */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /* 👇スタイル */
+  display: inline-block;
+  width: 100%; /* 幅 */
+  max-width: 150px; /* 最大幅 */
+  margin: 1.6em 20px; /* 前後の余白 */
+  padding: 0.6em 1.5em 0.6em 0.5em; /* 文字周りの余白 */
+  cursor: pointer; /* カーソルを指に */
+  line-height: 1.4; /* 行高 */
+  font-size: 0.95em; /* フォントサイズ */
+  font-weight: 700; /* 太字に */
+  color: #333; /* 文字色 */
+  border-radius: 4px; /* 角丸 */
+  background-color: #f7f9fb; /* 背景色 */
+  border: solid 1px #e1e8ef; /* 枠線 */
+  box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+  /* 👇三角マークを作る */
+  background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+}
+/* フォーカス時 */
+.styled-select:focus {
+  outline: 0;
+  border-color: #b0c5ff; /* 枠線色を変更 */
+}
+/* IEでデフォルトの矢印を消す */
+.styled-select::-ms-expand {
+  display: none;
+}
 
 
 
