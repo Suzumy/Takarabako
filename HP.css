@@ -17,7 +17,6 @@ body{
 
 
 /* ログイン、新規登録 */
-
 .btn,.btn3{
   border-radius: 5px;
   background-color: #004766;
@@ -202,6 +201,7 @@ nav .inner ul li a:hover{
 .main2{
   display: inline-block;
 }
+
 
 .font{
   color: #ffff;

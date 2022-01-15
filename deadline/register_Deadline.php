@@ -26,6 +26,7 @@ $tags = $stmt->fetchall();
     <form action="register_Deadline_DB.php" method="POST">
         <table>
             <!--tagの表示-->
+
             <tr>
                 <td>題名</td>
                 <td><input type="text" name="title"></td>

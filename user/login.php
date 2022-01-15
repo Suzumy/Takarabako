@@ -6,6 +6,8 @@ if ($_SESSION) {
         echo 'ログイン失敗';
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
