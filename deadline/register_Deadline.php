@@ -10,7 +10,6 @@ $stmt->execute();
 $tags = $stmt->fetchall();
 
 ?>
-//このファイルにphpの処理を足して登録・編集を兼用できるようにしたい
 <html>
 
 <head>
@@ -26,6 +25,8 @@ $tags = $stmt->fetchall();
     <p class="font1">締め切り登録</p>
     <form action="register_Deadline_DB.php" method="POST">
         <table>
+            <!--tagの表示-->
+
             <tr>
                 <td>題名</td>
                 <td><input type="text" name="title"></td>

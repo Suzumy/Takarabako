@@ -22,7 +22,6 @@ if (isset($_POST['tag'])) {
 
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
-
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
@@ -50,7 +49,9 @@ if (isset($_POST['tag'])) {
     $tasks = $stmt->fetchall();
 }
 //プルダウンにタグを渡す
-$sql = "SELECT DISTINCT tag FROM tags WHERE user_id = :user_id and tag != ' '";
+//ここは本来はユーザーが持っているタグのみを表示するべき
+//1. tagsにユーザIDの外部キーを持たせる - sqlを修正してタグにユーザーIDを持たせるようにする
+$sql = "SELECT DISTINCT * FROM tags WHERE user_id = :user_id and tag != ' '";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $userId);
 $stmt->execute();

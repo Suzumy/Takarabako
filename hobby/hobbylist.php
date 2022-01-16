@@ -80,6 +80,7 @@ require_once 'hobbylistDB.php';
                             <input type="hidden" name="memo" value="<?= $value['memo']; ?>">
                             <input type="hidden" name="tag" value="<?=  $tagedit  ; ?>">
                             <input type="hidden" name="id" value="<?= $value['id']; ?>">
+
                             <input type="submit" name="btn" value="編集">
                         </form>
                         <!-- 削除画面delete.phpにデータを送信-->
