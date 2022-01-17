@@ -250,6 +250,15 @@ nav .inner ul li a:hover{
 .main1{
   width: 80%;
   margin:4% auto;
+
+
+.simekiri{
+  margin: 0 0 0 auto;
+}
+
+.main1{
+  width: 80%;
+  margin:0 auto;
 }
 
 .main2{
@@ -299,7 +308,4 @@ th, td {
 .parent{
   text-align:center;
 }
-
-
-
 

@@ -173,7 +173,6 @@ nav .inner ul li a:hover{
 }
 
 
-
 #mask{
   display: none;
   transition:all 0.5s;
@@ -199,7 +198,6 @@ nav .inner ul li a:hover{
   font-weight: 400;
   text-align: center;
 }
-
 
 .example{
   position: relative;/*相対配置*/

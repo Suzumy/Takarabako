@@ -27,7 +27,6 @@ require_once 'hobbylistDB.php';
             //絞り込みができていない
             //tagを取得 
             foreach ($tags as $tag) {
-
                 $tags_list = "<option value='" . h($tag['tag']);
                 $tags_list .= "'>" . h($tag['tag']) . "</option>";
                 echo $tags_list;
@@ -40,27 +39,31 @@ require_once 'hobbylistDB.php';
     <table border="1">
         <tr>
             <th>メモ</th>
-            <th>日付</th>
             <th>タグ</th>
         </tr>
 
         <?php
-
         $idcheck = '';
-        foreach ($tasks as $task) {
-            $id = $task['id'];
+        foreach ($tasks as $value) {
+            $tagedit=''; 
+            $id = $value['id'];
             if ($id != $idcheck) {
         ?>
 
                 <tr>
-                    <td><?php echo h($task['memo']); ?></td>
-                    <td><?php echo h($task['day_at']); ?></td>
+
+                    <td><?php echo h($value['memo']); ?></td>
                     <td>
                         <?php
 
                         foreach ($tasks as $task) {
                             if ($id == $task['id']) {
-                                echo h($task['tag']);
+                                echo h(' '.$task['tag']);
+                                if(empty($tagedit)){
+                                    $tagedit .=$task['tag'];
+                                }else{
+                                     $tagedit .= str_replace('#', ' #', $task['tag'] );  
+                                }
                             }
                         }
                         ?>
@@ -87,7 +90,6 @@ require_once 'hobbylistDB.php';
                     </td>
                 </tr>
         <?php
-
             }
             $idcheck = $id;
         }
