@@ -165,9 +165,6 @@ nav .inner ul li a:hover{
   bottom: 1px;
 }
 
-.open .toggle-btn span{
-  /*background-color: #fff;/*後で消す*/
-}
 
 #mask{
   display: none;
@@ -242,6 +239,7 @@ form{
   text-align:center;
 }
 
+/* プルダウンメニュー */
 .styled-select {
   /* 👇デフォルトのスタイルを解除 */
   -moz-appearance: none;
@@ -278,6 +276,45 @@ form{
   display: none;
 }
 
+
+/* 編集,削除のボタン */
+.btn4 {
+  display       : inline-block;
+  border-radius: 4px;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 5px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 1px solid #000000;    /* 枠の指定 */
+}
+.btn4:hover {
+  color         : #ffffff;     /* 背景色     */
+  background    : #999999;     /* 文字色     */
+}
+
+/* 送信ボタン */
+.btn5 {
+  display       : inline-block;
+  border-radius: 4px;          /* 角丸       */
+  font-size: 0.95em; /* フォントサイズ */
+  font-weight: 700; /* 太字に */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 5px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color: #333; /* 文字色 */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border: solid 1px #000000; /* 枠線 */
+}
+.btn5:hover {
+  color         : #ffffff;     /* 背景色     */
+  background    : #999999;     /* 文字色     */
+}
 
 
 

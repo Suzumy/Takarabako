@@ -13,21 +13,9 @@ if (empty($_SESSION['id'])) {
 <main>
   <!-- この機能を右に移動する 1 -->
 <div class="main0">
-  <div class="tag0">
-  <?php
-    foreach ($tags as $value) {
-  ?>
-    <form method="POST" style="display: inline;">
-      <input type="submit" name="tag" value="<?php echo $value['tag']; ?>">
-    </form>
-
-    <?php
-    }
-    ?>
-  </div>
-
-  <div class="simekiri">
-    <p>もうすぐ締め切りのもの</p>
+  
+  <div class="simekiri box">
+    <p class="parent border">もうすぐ締め切りのもの</p>
     <?php
     if ($near_deadline == 'false') {
       echo '現在締め切りの近いものはありません';
@@ -37,6 +25,19 @@ if (empty($_SESSION['id'])) {
     ?>
   </div>
 </div>
+
+<div class="tag0">
+  <?php
+    foreach ($tags as $value) {
+  ?>
+    <form method="POST" style="display: inline;">
+      <input class ="btn6" type="submit" name="tag" value="<?php echo $value['tag']; ?>">
+    </form>
+
+    <?php
+    }
+    ?>
+  </div>
 
 <div class="main1">
   <div class="main2">
