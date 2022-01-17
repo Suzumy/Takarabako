@@ -1,0 +1,305 @@
+*{
+  margin: 0px;/*外側の余白なし*/
+	padding: 0px;/*内側の余白なし*/
+}
+
+/*ヘッダー*/
+header{
+  background-color:  #FFB899;
+  text-align:center;
+  padding:20px 0;
+}
+
+/* 背景色 */
+body{
+  background-color:  #FFB899;
+}
+
+
+/* ログイン、新規登録 */
+.btn,.btn3{
+  border-radius: 5px;
+  background-color: #004766;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  float: right;
+  position: relative;
+  bottom: 50px;
+  right: 10px;
+}
+
+.btn2{
+  border-radius: 5px;
+  background-color: black;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  float: right;
+  position: relative;
+  bottom: 60px;
+  right: 20px;
+}
+
+
+.image1{
+  /*宝箱の画像*/
+  position: absolute;
+  padding: 10px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.image2{
+  /*プラスボタンの画像*/
+  position: absolute;
+  padding: 10px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+body{
+  font-weight: 400;
+}
+
+main{
+  padding:50px;
+}
+
+.titlefont{
+  color: #ffff;
+  font-size: 45px;
+  font-weight: 400;
+  text-align: center;
+}
+
+nav{
+  display: block;
+  width: 220px;
+  position: fixed;
+  background-color: #ffffff;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.open nav{
+  left:0;
+  opacity: 1;
+}
+
+nav .inner{
+  padding:25px;
+}
+
+nav .inner ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav .inner ul li{
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+nav .inner ul li a{
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 1rem;
+  transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover{
+  background-color: #e4e4e4;
+}
+
+/*ハンバーガーアイコン*/
+.toggle-btn{
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  height: 30px;
+  z-index: 30px;
+  cursor: pointer;
+}
+
+.toggle-btn span{
+  position: absolute;
+  display: block;
+  left: 20px;
+  width: 30px;
+  height: 5px;
+  background-color: #333;/*後で消す*/
+  transition: all 0.5s;
+  border-radius: 4px;
+}
+
+.toggle-btn span:nth-child(1){
+  top: 3px;
+}
+
+.toggle-btn span:nth-child(2){
+  top: 14px;
+}
+
+.toggle-btn span:nth-child(3){
+  bottom: 1px;
+}
+
+.open .toggle-btn span{
+  /*background-color: #fff;/*後で消す*/
+}
+
+#mask{
+  display: none;
+  transition:all 0.5s;
+}
+
+.open #mask{
+  display: block;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/*mainコンテンツ*/
+
+
+/* 締め切り */
+.simekiri{
+  margin: 0 0 0 auto;
+}
+
+.box{
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px #004766;
+  border-radius: 3px 0 3px 0;
+}
+.box:before,.box:after
+{
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 2px #004766;
+  border-radius: 50%;
+}
+.box:after {
+  top:-12px;
+  left:-12px;
+}
+.box:before {
+  bottom:-12px;
+  right:-12px;
+}
+.box p {
+  margin: 0; 
+  padding: 0;
+}
+
+.border{
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+/* タグ機能 */
+.main0{
+  display: flex;
+}
+
+.tag0{
+  float: left;
+}
+
+.btn6 {
+  display       : inline-block;
+  border-radius: 4px;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  font-weight: bolder;         /*太字 */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 5px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 1px solid #004766;    /* 枠の指定 */
+}
+.btn6:hover {
+  color         : #ffffff;     /* 背景色     */
+  background    : #999999;     /* 文字色     */
+}
+
+/* 位置調整 */
+.main1{
+  width: 80%;
+  margin:4% auto;
+}
+
+.main2{
+  display: inline-block;
+}
+
+
+.font{
+  color: #ffff;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* テーブルを常に画面中心に配置 */
+table {
+  margin: 0px auto 20px;
+}
+
+/* テーブルの枠線を灰色の1pxの直線とし、1本にまとめる */
+table, th, td {
+  border: 1px solid #004766;
+  border-collapse: collapse;
+}
+
+/* セル内の上下の余白を3px、左右の余白を10pxに */
+th, td {
+  padding: 3px 10px 3px 10px;
+}
+
+/* セル内のデータを右詰め表示 */
+.td_right {
+  text-align: right;
+}
+
+/* セル内のデータをセンター表示 */
+.td_center {
+  text-align: center;
+}
+
+/* リンクをボタンに見せるやつ */
+.btn3{
+  position: static;
+  float: none;
+}
+
+.parent{
+  text-align:center;
+}
+
+
+
+
