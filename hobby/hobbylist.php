@@ -34,7 +34,7 @@ require_once 'hobbylistDB.php';
             }
             ?>
         </select>
-        <input class="btn5" type='submit' value='送信' />
+        <input class="btn6" type='submit' value='送信' />
     </form>
     <!-- ここから締め切りリスト-->
     <table border="1">
