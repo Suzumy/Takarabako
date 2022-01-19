@@ -20,7 +20,6 @@ if ($_SESSION) {
     <title></title>
 </head>
 
-<a href="signup.php" class="btn2">新規登録</a>
 
 <form method="POST" action="login_db.php" name="login_form">
 
@@ -34,6 +33,7 @@ if ($_SESSION) {
         <input type="text" name="address" placeholder="usermail" required>
         <input type="password" name="password" placeholder="password" required>
         <input type="submit" value="ログイン">
+        <button type=“button” onclick="location.href='signup.php'">新規登録</button>
     </div>
 
 </form>

@@ -1,10 +1,10 @@
 body {
-  background-color: #FFFFFF;
+  background-color: #F29B76;
 }
 
 form {
-  width: 400px;
-  padding: 40px 10px;
+  width: 500px;
+  padding: 100px 10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -58,6 +58,28 @@ form p {
 }
 
  input[type = "submit"]:hover {
+  background-color: #ff69b4;
+  border: 2px solid #ff69b4;
+}
+
+button  {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  border: 2px solid #f0f8ff;
+  padding: 15px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 25px;
+  transition: 0.25s;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* ホバー時（カーソルをのせた時）の見た目 */
+button:hover {
   background-color: #ff69b4;
   border: 2px solid #ff69b4;
 }
