@@ -14,7 +14,7 @@ $tags = $stmt->fetchall();
 //new PDO($dsn, $user, $password);
 //tagが送られてるかチェック
 if (empty($_POST['tag'])) {
-    $sql = "SELECT * FROM hobbys WHERE user_id = :user_id";
+    $sql = "SELECT * FROM hobbys WHERE user_id = :user_id ORDER BY id DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $userId);
     $stmt->execute();
@@ -29,7 +29,7 @@ if (empty($_POST['tag'])) {
     $stmt->execute();
     $tags_id = $stmt->fetch();
     $tags_id = $tags_id['id'];
-    $sql = 'SELECT * FROM  hobbys JOIN hobby_tag ON hobbys.id=hobby_tag.hobby_id WHERE hobby_tag.tag_id=:tags_id and user_id = :user_id';
+    $sql = 'SELECT * FROM  hobbys JOIN hobby_tag ON hobbys.id=hobby_tag.hobby_id WHERE hobby_tag.tag_id=:tags_id and user_id = :user_id ORDER BY id DESC';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':tags_id', $tags_id);
     $stmt->bindValue(':user_id', $userId);
