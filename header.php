@@ -20,6 +20,7 @@
                     <li><a href="/Takarabako/hobby/hobbylist.php">趣味・画像一覧</a></li>
                     <li><a href="/Takarabako/deadline/register_Deadline.php">締め切り登録画面</a></li>
                     <li><a href="/Takarabako/deadline/list.php">締め切り一覧画面</a></li>
+                    <li><a href="/Takarabako/user/logout.php">ログアウト</a></li>
 
                 </ul>
             </div>
@@ -34,7 +35,7 @@
             <!-- ログイン後の画面にログイン画面と新規登録画面は不要 -->
             <!-- <a href="new.html" class="btn">ログイン</a>
             <a href="rogin.html" class="btn2">新規登録</a> -->
-            <a href="/Takarabako/user/logout.php" class="btn2">ログアウト</a>
+
         </header>
 
         <div class="toggle-btn">
