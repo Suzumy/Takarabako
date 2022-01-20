@@ -49,10 +49,10 @@ if (isset($_POST['back'])) {
             </tr>
             <input type="hidden" name="id" value=<?= h($id) ?>>
         </table>
-        <input type='submit' value='送信' />
+        <input class="btn4" type='submit' value='送信' />
     </form>
     <form method="POST">
-        <input type='submit' name='back' value='締め切り一覧に戻る'>
+        <input class="btn4" type='submit' name='back' value='締め切り一覧に戻る'>
     </form>
 </main>
 
