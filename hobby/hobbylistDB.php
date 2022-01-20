@@ -18,7 +18,7 @@ if (isset($_POST['tag'])) {
     if ($hobby_tag == '全て') {
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
         INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id ORDER BY id DESC";
 
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
@@ -30,7 +30,7 @@ if (isset($_POST['tag'])) {
         //tagを確認
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
         INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag";
+        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag ORDER BY id DESC";
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':tags_tag', $hobby_tag);
         $stmt->bindValue(':user_id', $userId);
@@ -41,7 +41,7 @@ if (isset($_POST['tag'])) {
 } else {
     $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
     INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-    INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+    INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id ORDER BY id DESC";
 
     $stmt =  $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $userId);
