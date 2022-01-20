@@ -3,9 +3,18 @@ session_start();
 
 if ($_SESSION) {
     if ($_SESSION['error'] == 'login_faild') {
-        echo 'ログイン失敗';
+        $login_failed = "<script type='text/javascript'>alert('ログイン失敗しました');</script>";
+        echo $login_failed;
     }
 }
+
+if (isset($_GET['logout'])) {
+    if ($_GET['logout'] == 'true') {
+        $logout_message = "<script type='text/javascript'>alert('ログアウトしました');</script>";
+        echo $logout_message;
+    }
+}
+
 
 
 ?>
