@@ -18,11 +18,10 @@ if (isset($_POST['tag'])) {
     if ($hobby_tag == '全て') {
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
         INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id ORDER BY id DESC";
 
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':user_id', $userId);
-
         $stmt->execute();
         $tasks = $stmt->fetchall();
         //プルダウンの文字列に該当するものだけ送信
@@ -31,7 +30,7 @@ if (isset($_POST['tag'])) {
         //tagを確認
         $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
         INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag";
+        INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id AND tags.tag=:tags_tag ORDER BY id DESC";
         $stmt =  $pdo->prepare($sql);
         $stmt->bindValue(':tags_tag', $hobby_tag);
         $stmt->bindValue(':user_id', $userId);
@@ -42,7 +41,7 @@ if (isset($_POST['tag'])) {
 } else {
     $sql = "SELECT tags.tag,hobbys.memo,hobbys.day_at,hobbys.id,hobbys.URL, hobbys.user_id FROM `hobbys` 
     INNER JOIN hobby_tag ON hobbys.id = hobby_tag.hobby_id 
-    INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id";
+    INNER JOIN tags ON hobby_tag.tag_id = tags.id WHERE hobbys.user_id = :user_id ORDER BY id DESC";
 
     $stmt =  $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $userId);
@@ -50,7 +49,9 @@ if (isset($_POST['tag'])) {
     $tasks = $stmt->fetchall();
 }
 //プルダウンにタグを渡す
-$sql = "SELECT DISTINCT tag FROM tags WHERE user_id = :user_id and tag != ' '";
+//ここは本来はユーザーが持っているタグのみを表示するべき
+//1. tagsにユーザIDの外部キーを持たせる - sqlを修正してタグにユーザーIDを持たせるようにする
+$sql = "SELECT DISTINCT * FROM tags WHERE user_id = :user_id and tag != ' '";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $userId);
 $stmt->execute();

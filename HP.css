@@ -5,13 +5,10 @@
 
 /*ヘッダー*/
 header{
-  /* background-image: url("old.jpg"); */
   background-color:  #FFB899;
   text-align:center;
   padding:20px 0;
 }
-
-
 
 /* 背景色 */
 body{
@@ -20,7 +17,7 @@ body{
 
 
 /* ログイン、新規登録 */
-.btn,.btn2,.btn3{
+.btn,.btn3{
   border-radius: 5px;
   background-color: #004766;
   padding: 10px;
@@ -142,7 +139,7 @@ nav .inner ul li a:hover{
   left: 20px;
   width: 30px;
   height: 5px;
-  /*background-color: #333;/*後で消す*/
+  background-color: #333;/*後で消す*/
   transition: all 0.5s;
   border-radius: 4px;
 }
@@ -159,9 +156,7 @@ nav .inner ul li a:hover{
   bottom: 1px;
 }
 
-.open .toggle-btn span{
-  /*background-color: #fff;/*後で消す*/
-}
+
 
 #mask{
   display: none;
@@ -181,46 +176,85 @@ nav .inner ul li a:hover{
 }
 
 /*mainコンテンツ*/
-/* 締め切り機能 */
+
+
+/* 締め切り */
+.simekiri{
+  margin: 0 0 0 auto;
+}
+
+.box{
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px #004766;
+  border-radius: 3px 0 3px 0;
+}
+.box:before,.box:after
+{
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 2px #004766;
+  border-radius: 50%;
+}
+.box:after {
+  top:-12px;
+  left:-12px;
+}
+.box:before {
+  bottom:-12px;
+  right:-12px;
+}
+.box p {
+  margin: 0; 
+  padding: 0;
+}
+
+.border{
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+/* タグ機能 */
 .main0{
   display: flex;
 }
+
+.tag0{
+  float: left;
+}
+
+.btn6 {
+  display       : inline-block;
+  border-radius: 4px;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  font-weight: bolder;         /*太字 */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 5px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 1px solid #004766;    /* 枠の指定 */
+}
+.btn6:hover {
+  color         : #ffffff;     /* 背景色     */
+  background    : #999999;     /* 文字色     */
+}
+
+/* 位置調整 */
 .main1{
-  width: 50%;
-  height: 100%;
-  margin-left: auto;
-  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
+  width: 80%;
+  margin:4% auto;
 }
 
 .main2{
-  width: 50%;
-  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/
-}
-/* .title{
-  font-family: "ＭＳＰ明朝", serif;/*フォントの変更*/
-  /*border:1px solid #333;/*枠線(divの範囲がどれくらいかを確認)*/
-/*}*/
-
-.contents1{/* twitter */
-  position: absolute;
-  width: 30%;
-  /*border:1px solid red;/*枠線(divの範囲がどれくらいかを確認)*/
+  display: inline-block;
 }
 
-.contents2{/* youtube */
-  position: absolute;
-  width: 30%;
-  margin: 0 0 0 30%;/* 上 右 下 左の余白の数値 */
-  /*border:1px solid blue;/*枠線(divの範囲がどれくらいかを確認)*/
-}
 
-.contents3{/* HP */
-  position: absolute;
-  width: 30%;
-  margin: 0 0 0 60%;/* 上 右 下 左の余白の数値 */
-}
-  /*border:1px solid green;/*枠線(divの範囲がどれくらいかを確認)*/ */
-}
 .font{
   color: #ffff;
   font-size: 30px;
@@ -262,8 +296,12 @@ th, td {
 
 .parent{
   text-align:center;
-
 }
- }
+
+.boxContainer{
+  float: left;
+  list-style: none;
+  margin: 10px;
+}
 
 

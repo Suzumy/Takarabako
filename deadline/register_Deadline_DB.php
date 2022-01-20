@@ -63,7 +63,6 @@ foreach ($tags as $tag) {
   $result2 = $sth->execute();
 }
 
-
 //チェック用
 if ($result2) {
   header('Location: ./list.php');

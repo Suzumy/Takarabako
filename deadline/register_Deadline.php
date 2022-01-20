@@ -10,7 +10,6 @@ $stmt->execute();
 $tags = $stmt->fetchall();
 
 ?>
-//このファイルにphpの処理を足して登録・編集を兼用できるようにしたい
 <html>
 
 <head>
@@ -22,36 +21,38 @@ $tags = $stmt->fetchall();
 </head>
 
 
-<body>
-    <p class="font1">締め切り登録</p>
+<main>
+    <p class="font">締め切り登録</p>
     <form action="register_Deadline_DB.php" method="POST">
-        <table>
-            <tr>
-                <td>題名</td>
-                <td><input type="text" name="title"></td>
-            </tr>
-            <tr>
-                <td>日付</td>
-                <td><input type="date" name="day"></td>
-            </tr>
-            <tr>
-                <td>タグ</td>
-                <td><input type="text" name="tag"></td>
-            </tr>
-            <tr>
-                <td>時間</td>
-                <td><input type="time" name="time"></td>
-            </tr>
-            <tr>
-                <td>メモ</td>
-                <td><textarea name="memo" cols="50" rows="5"></textarea></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="送信"></td>
-            </tr>
-        </table>
+        <div class="form">
+            <table>
+                <!--tagの表示-->
+
+                <tr>
+                    <td>題名</td>
+                    <td><input class="txtbox" type="text" name="title" placeholder="(例)生誕祭グッズ"></td>
+                </tr>
+                <tr>
+                    <td>日付</td>
+                    <td><input class="txtbox" type="date" name="day"></td>
+                </tr>
+                <tr>
+                    <td>タグ</td>
+                    <td><input class="txtbox" type="text" name="tag" placeholder="(例)アイドル"></td>
+                </tr>
+                <tr>
+                    <td>時間</td>
+                    <td><input class="txtbox" type="time" name="time"></td>
+                </tr>
+                <tr>
+                    <td>メモ</td>
+                    <td><textarea class="txtarea" name="memo" cols="50" rows="5"></textarea></td>
+                </tr>
+            </table>
+                <input class="btn5" type="submit" value="送信">
+        </div>
     </form>
-</body>
+</main>
 
 <script src="../script.js"></script>
 

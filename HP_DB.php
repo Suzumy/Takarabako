@@ -14,7 +14,7 @@ $tags = $stmt->fetchall();
 //new PDO($dsn, $user, $password);
 //tagが送られてるかチェック
 if (empty($_POST['tag'])) {
-    $sql = "SELECT * FROM hobbys WHERE user_id = :user_id";
+    $sql = "SELECT * FROM hobbys WHERE user_id = :user_id ORDER BY id DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $userId);
     $stmt->execute();
@@ -29,7 +29,7 @@ if (empty($_POST['tag'])) {
     $stmt->execute();
     $tags_id = $stmt->fetch();
     $tags_id = $tags_id['id'];
-    $sql = 'SELECT * FROM  hobbys JOIN hobby_tag ON hobbys.id=hobby_tag.hobby_id WHERE hobby_tag.tag_id=:tags_id and user_id = :user_id';
+    $sql = 'SELECT * FROM  hobbys JOIN hobby_tag ON hobbys.id=hobby_tag.hobby_id WHERE hobby_tag.tag_id=:tags_id and user_id = :user_id ORDER BY id DESC';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':tags_id', $tags_id);
     $stmt->bindValue(':user_id', $userId);
@@ -41,8 +41,9 @@ if (empty($_POST['tag'])) {
 
 
 #締め切りの内一番締め切りが近いものをとってくる
-$sql = "SELECT * FROM `application_lists` WHERE deadline > now() ORDER BY deadline LIMIT 1";
-$stmt = $pdo->query($sql);
+$sql = "SELECT * FROM `application_lists` WHERE user_id = :user_id AND deadline > now() ORDER BY deadline LIMIT 1";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':user_id', $userId);
 $stmt->execute();
 $near_deadline = $stmt->fetch();
 if (empty($near_deadline[0])) {
