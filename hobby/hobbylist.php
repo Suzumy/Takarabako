@@ -45,7 +45,7 @@ require_once 'hobbylistDB.php';
         <?php
         $idcheck = '';
         foreach ($tasks as $value) {
-            $tagedit=''; 
+            $tagedit = '';
             $id = $value['id'];
             if ($id != $idcheck) {
         ?>
@@ -58,11 +58,11 @@ require_once 'hobbylistDB.php';
 
                         foreach ($tasks as $task) {
                             if ($id == $task['id']) {
-                                echo h(' '.$task['tag']);
-                                if(empty($tagedit)){
-                                    $tagedit .=$task['tag'];
-                                }else{
-                                     $tagedit .= str_replace('#', ' #', $task['tag'] );  
+                                echo h(' ' . $task['tag']);
+                                if (empty($tagedit)) {
+                                    $tagedit .= $task['tag'];
+                                } else {
+                                    $tagedit .= str_replace('#', ' #', $task['tag']);
                                 }
                             }
                         }
@@ -98,7 +98,7 @@ require_once 'hobbylistDB.php';
     </table>
     <!-- //登録画面に遷移 -->
     <div class="parent">
-        <a class="btn3" href="register_Deadline.php">登録</a>
+        <a class="btn3" href="register_Hobby.php">登録</a>
     </div>
     <script src="../script.js"></script>
 
