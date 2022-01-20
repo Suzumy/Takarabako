@@ -11,24 +11,12 @@ $id = $_POST['id'];
 $title = $_POST['title'];
 $deadline = $_POST['deadline'];
 $detail = $_POST['detail'];
-
+$taglist = $_POST['tag'];
 //締め切り一覧に戻るボタンの処理
 if (isset($_POST['back'])) {
     header('Location: list.php');
 }
 
-//タグを取得する
-$sql = "SELECT tag FROM application_lists LEFT JOIN apl_tag ON application_lists.id = apl_tag.apl_id LEFT JOIN tags ON apl_tag.tag_id = tags.id WHERE application_lists.id = :id;";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id);
-$stmt->execute();
-$tags = $stmt->fetchAll();
-$tag = "";
-foreach ($tags as $t) {
-    $tag = $tag . $t['tag'] . ' ';
-}
-//最後に余分な空白ができるためこれを削除する
-$tag = trim($tag);
 
 ?>
 <!--ここから表示-->
@@ -53,7 +41,7 @@ $tag = trim($tag);
             </tr>
             <tr>
                 <td>タグ</td>
-                <td><input type="text" name="tag" value="<?= h($tag) ?>"></td>
+                <td><input type="text" name="tag" value="<?= h($taglist) ?>"></td>
             </tr>
             <tr>
                 <td>メモ</td>

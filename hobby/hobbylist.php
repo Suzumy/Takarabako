@@ -72,19 +72,21 @@ require_once 'hobbylistDB.php';
                         <!-- 編集画面edit.phpにデータを送信-->
                         <!-- edit.phpをregister_Deadlineと共有にしたい -->
                         <form action="hobby_edit.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $task['id']; ?>">
-                            <input type="hidden" name="memo" value="<?= $task['memo']; ?>">
-                            <input type="hidden" name="day_at" value="<?= $task['day_at']; ?>">
-                            <input type="hidden" name="tag" value="<?= $task['tag']; ?>">
-                            <input type="hidden" name="URL" value="<?= $task['URL']; ?>">
+                            <input type="hidden" name="URL" value="<?= $value['URL']; ?>">
+                            <input type="hidden" name="day_at" value="<?= $value['day_at']; ?>">
+                            <input type="hidden" name="memo" value="<?= $value['memo']; ?>">
+                            <input type="hidden" name="tag" value="<?= $tagedit; ?>">
+                            <input type="hidden" name="id" value="<?= $value['id']; ?>">
                             <input class="btn4" type="submit" name="btn" value="編集">
                         </form>
+
                         <!-- 削除画面delete.phpにデータを送信-->
                         <form action="hobby_delete.php" method="POST">
-                            <input type="hidden" name="title" value="<?= $task['memo']; ?>">
-                            <input type="hidden" name="day_at" value="<?= $task['day_at']; ?>">
-                            <input type="hidden" name="tag" value="<?= $task['tag']; ?>">
-                            <input type="hidden" name="id" value="<?= $task['id']; ?>">
+                            <input type="hidden" name="URL" value="<?= $value['URL']; ?>">
+                            <input type="hidden" name="memo" value="<?= $value['memo']; ?>">
+                            <input type="hidden" name="day_at" value="<?= $value['day_at']; ?>">
+                            <input type="hidden" name="tag" value="<?= $tagedit ?>">
+                            <input type="hidden" name="id" value="<?= $value['id']; ?>">
                             <input class="btn4" type="submit" name="btn" value="削除">
                         </form>
                     </td>
