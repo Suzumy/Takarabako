@@ -64,7 +64,7 @@ require_once 'listDB.php';
                         <input type="hidden" name="id" value="<?= $task['id']; ?>">
                         <input type="hidden" name="title" value="<?= $task['title']; ?>">
                         <input type="hidden" name="detail" value="<?= $task['detail']; ?>">
-                        <inputtype="hidden" name="deadline" value="<?= $task['deadline']; ?>">
+                        <input type="hidden" name="deadline" value="<?= $task['deadline']; ?>">
                         <input class="btn4" type="submit" name="btn" value="編集">
                     </form>
                     <!-- 削除画面delete.phpにデータを送信-->
