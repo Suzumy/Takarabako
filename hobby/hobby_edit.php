@@ -29,7 +29,6 @@ if (isset($_POST['back'])) {
     <form method="POST" action="hobby_editcheck.php">
         <table>
             <tr>
-                //元のURLを比較用に表示する
                 <td> URL <input type="text" name="URL" value="<?= h($URL) ?>" required></td>
             </tr>
             <tr>
@@ -45,7 +44,7 @@ if (isset($_POST['back'])) {
     </form>
     <!--締め切り一覧に戻るボタン-->
     <form method="POST" action="hobby_editcheck.php">
-        <input class="btn4" type='submit' name='back' value='締め切り一覧に戻る'>
+        <input class="btn4" type='submit' name='back' value='趣味一覧に戻る'>
     </form>
 </main>
 

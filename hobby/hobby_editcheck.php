@@ -35,7 +35,7 @@ $stmt->execute();
 
 #tagsへの登録処理
 #複数のタグをスペースで分割する
-$tag_list = preg_replace('/　/', ' ',$tag_list); //全角スペースを半角スペースへ
+$tag_list = preg_replace('/　/', ' ', $tag_list); //全角スペースを半角スペースへ
 $tag_list = preg_replace('/\s+/', ' ', $tag_list); //連続する半角スペースを1つの半角スペースへ
 //" "で区切る
 $tags = explode(" ", $tag_list);
@@ -63,7 +63,7 @@ foreach ($tags as $tag) {
 
     $sql = "INSERT INTO `hobby_tag` (`id`,`hobby_id`, `tag_id`) VALUES (NULL, :hobby_id,:tag_id)";
     $sth = $pdo->prepare($sql);
-    $sth->bindValue(':hobby_id', $id );
+    $sth->bindValue(':hobby_id', $id);
     $sth->bindValue(':tag_id', $tags_id);
     $result2 = $sth->execute();
 }
@@ -79,7 +79,7 @@ foreach ($tags as $tag) {
 </head>
 
 <body>
-    <h1>締め切り編集確認画面</h1>
+    <h1>趣味確認画面</h1>
     <p>この内容で更新しました</p>
     <p></p>
     <table>
@@ -95,7 +95,7 @@ foreach ($tags as $tag) {
     </table>
     <!--締め切り一覧に戻るボタン-->
     <form method="POST">
-        <input type='submit' name='back' value='締め切り一覧に戻る'>
+        <input type='submit' name='back' value='趣味一覧に戻る'>
     </form>
 
     <script src="../script.js"></script>
