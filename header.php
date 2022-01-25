@@ -16,8 +16,8 @@
                 <ul>
                     <li><a href="/Takarabako/HP.php">Home</a></li>
 
-                    <li><a href="/Takarabako/hobby/register_Hobby.php">趣味・画像登録画面</a></li>
-                    <li><a href="/Takarabako/hobby/hobbylist.php">趣味・画像一覧</a></li>
+                    <li><a href="/Takarabako/hobby/register_Hobby.php">趣味登録画面</a></li>
+                    <li><a href="/Takarabako/hobby/hobbylist.php">趣味一覧</a></li>
                     <li><a href="/Takarabako/deadline/register_Deadline.php">締め切り登録画面</a></li>
                     <li><a href="/Takarabako/deadline/list.php">締め切り一覧画面</a></li>
                     <li><a href="/Takarabako/user/logout.php">ログアウト</a></li>
