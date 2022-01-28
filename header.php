@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サンプル</title>
+    <title>たからばこ</title>
     <link rel="stylesheet" href="HP.css">
 </head>
 
@@ -31,7 +31,8 @@
             <!--  <p><a href="#"><img src="box.jpg" alt="宝箱" class="image1"></a></p>-->
 
 
-            <h1 class="titlefont">たからばこ</h1>
+            <!-- <h1 class="titlefont">たからばこ</h1> -->
+            <img style="width: 267px; height: 147px" src="rogo.png" alt="ロゴマーク" title="ロゴ">
             <!-- ログイン後の画面にログイン画面と新規登録画面は不要 -->
             <!-- <a href="new.html" class="btn">ログイン</a>
             <a href="rogin.html" class="btn2">新規登録</a> -->
